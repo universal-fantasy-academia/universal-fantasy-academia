@@ -1,4 +1,10 @@
 # Rpg High School (Universal Fantasy Academia)
+## Introdução
+- [ ] Sinopse Sejam bem-vindo a esse novo universo, sobre o mundo real se rasgou um cemitério de Criadoras Místicas e Reinos Fantásticos.
+Nesse RPG de ação, você vai viver na pele de um jovem estudante tentando adaptar uma nova realidade, qual é o mundo da transformação.
+
+- [ ] Legendas 1 - Primeiro a ser feito 2, 3, 4, 5... - Feito após o primeiro e consetivente * - Elemento opcional
+
 ## Classes
 - [ ] `5*` **(Mascote)Mestre das Transformações:** Especializado em magia de metamorfose, esse personagem pode se transformar em diferentes animais estudados na biologia da fauna.
 
