@@ -5,18 +5,20 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public abstract class Player : MonoBehaviour
-{
+{   
+    [SerializeField]
+    protected float speed, rotation;
     private Vector2 moveInput;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     void FixedUpdate()
     {
-        Debug.Log(moveInput);
+        // transform.Translate(Vector3.forward * moveInput.y * speed * Time.deltaTime);
+
+        // if(moveInput.x != 0)
+        // {
+        //     transform.Rotate(0, rotation*moveInput.x, 0);
+        // }
+        Debug.Log("teste: "+ moveInput.x);
     }
     
     public void Move(InputAction.CallbackContext context)
