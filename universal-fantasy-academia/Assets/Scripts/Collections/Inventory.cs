@@ -48,11 +48,10 @@ public class Inventory : MonoBehaviour
 
     public void RemoveItem(Item item)
     {
-        items.Remove(item);
-
-        if (currentItem == item)
+        item.RemoveQuantity();
+        if (item.quantity <= 0)
         {
-            currentItem = null;
+            items.Remove(item);
         }
     }
 
@@ -66,7 +65,6 @@ public class Inventory : MonoBehaviour
 
         item.Use();
 
-        // TODO: Pensar na lógica para saber qual(is) o(s) item(ns) que está(ão) sendo usado(s)
     }
 
 
