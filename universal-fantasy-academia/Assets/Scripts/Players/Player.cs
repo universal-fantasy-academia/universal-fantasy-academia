@@ -7,18 +7,20 @@ using UnityEngine.InputSystem;
 public abstract class Player : MonoBehaviour
 {   
     [SerializeField]
-    protected float speed, rotation;
+    protected float speed, rotation, jumpForce;
     private Vector2 moveInput;
+
+    protected Rigidbody rb;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
 
     void FixedUpdate()
     {
-        // transform.Translate(Vector3.forward * moveInput.y * speed * Time.deltaTime);
-
-        // if(moveInput.x != 0)
-        // {
-        //     transform.Rotate(0, rotation*moveInput.x, 0);
-        // }
-        Debug.Log("teste: "+ moveInput.x);
+        rb.AddForce(new Vector3(moveInput.x, 0, moveInput.y) * speed * Time.fixedDeltaTime);
     }
     
     public void Move(InputAction.CallbackContext context)
@@ -26,14 +28,30 @@ public abstract class Player : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
     }
 
-    public abstract void Jump();
+    /// <summary>
+    /// Método para pular.
+    /// </summary>
+    /// <remarks>
+    /// O método é implementado como virtual para que a classe filha possa sobrescrever com pulo duplo, por exemplo.
+    /// </remarks>
+    /// <param name="context"></param>
+    public virtual void Jump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            rb.AddForce(Vector3.up * jumpForce);//, ForceMode.Impulse);
+        }
+    }
 
-    public abstract void Attack();
+    public abstract void Attack(InputAction.CallbackContext context);
 
-    public abstract void Block();
+    public abstract void Block(InputAction.CallbackContext context);
 
 
-    public abstract void Die();
+    public void Die() 
+    {
+        //TODO: Implementar morte
+    }
 
     public abstract void Respawn();
 
@@ -48,7 +66,16 @@ public abstract class Player : MonoBehaviour
     // public abstract void UseItem(Item item);
 
 
-    //public abstract void Interact(Interactable interactable);
+    public virtual void Interact(InputAction.CallbackContext context)
+    {
+        //TODO: Verificar se entrou no trigger de algum objeto interagível
+        // Se sim, pegar o script Interactable e chamar o método Interact()
+
+        if (context.performed)
+        {
+            Debug.Log("Interagindo");
+        }
+    }
 
 
 
