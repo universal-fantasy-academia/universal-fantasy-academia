@@ -28,7 +28,7 @@
       
 - [ ] `4` **Laboratório Alquímico:** Uma masmorra com poções explosivas, criaturas mutantes e enigmas científicos, protegidos por monstros alquímicos.
       
-- [ ] `2` **Pátio Encantado:** Um pátio transformado em uma floresta encantada, com fadas hostis, plantas carnívoras e uma árvore gigante como chefe.
+- [ ] `2` **Prédio Abandonado:** Local aonde ficavam os Bully Orcs quando ainda eram pessoas comuns, ouvi dizer que lá tem criaturas da pesada.
 
 - [ ] `4` **Aréa dos professores Assombrada:** Onde era a area onde costumavam ficar os professores se tornou um local sombrio com varios puzzles e enigmas a se resolverem, inimigos como teachers guardians, Math Wizard, minibosses como Math Wizard(Test Day), Teacher Elite e como o boss a propría Manager Darkness
 
