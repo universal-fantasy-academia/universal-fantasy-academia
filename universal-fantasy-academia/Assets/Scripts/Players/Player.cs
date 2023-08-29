@@ -9,15 +9,20 @@ using UnityEngine.InputSystem;
 public abstract class Player : MonoBehaviour
 {   
     [SerializeField]
-    protected float speed, jumpHeight, gravityValue, rotation;
+    private float speed, jumpHeight, gravityValue, rotation;
     [SerializeField]
-    protected CharacterController controller;
-    protected Vector3 playerVelocity;
+    private Transform cameraTransform, playerTransform, orientation;
+    [SerializeField]
+    private CharacterController controller;
+    private Vector3 playerVelocity;
     private bool playerIsGrounded;
     private Vector2 moveInput;
 
     void Awake()
     {
+        
+        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
         controller = GetComponent<CharacterController>();
     }
 
@@ -33,16 +38,19 @@ public abstract class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-       Vector3 dir = new Vector3(moveInput.x, 0, moveInput.y);
-        controller.Move(dir * speed * Time.deltaTime);
+        Vector3 viewDir = playerTransform.position - new Vector3(cameraTransform.position.x, playerTransform.position.y, cameraTransform.position.z);
+        orientation.rotation = Quaternion.LookRotation(viewDir.normalized, Vector3.up);
         
+        Vector3 dir = orientation.forward * moveInput.y + orientation.right * moveInput.x;
+        controller.Move(dir.normalized * speed * Time.fixedDeltaTime);
+
         if(dir != Vector3.zero)
         {
-            gameObject.transform.forward = dir * rotation;
+            playerTransform.forward = Vector3.Slerp(playerTransform.forward, dir.normalized, Time.fixedDeltaTime * rotation);
         }
-        
-        playerVelocity.y += gravityValue * Time.deltaTime; 
-        controller.Move(playerVelocity * Time.deltaTime);
+
+        playerVelocity.y += gravityValue * Time.fixedDeltaTime; 
+        controller.Move(playerVelocity * Time.fixedDeltaTime);
         
     }
     
@@ -76,12 +84,21 @@ public abstract class Player : MonoBehaviour
         //TODO: Implementar morte
     }
 
-    public abstract void Respawn();
+    public virtual void Respawn()
+    {
+
+    }
 
 
-    public abstract void TakeDamage(int damage);
+    public virtual void TakeDamage(int damage)
+    {
 
-    public abstract void Heal(int healAmount);
+    }
+
+    public virtual void Heal(int healAmount)
+    {
+
+    }
 
 
     // public abstract void CollectItem(Item item);

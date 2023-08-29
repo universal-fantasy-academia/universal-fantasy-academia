@@ -33,19 +33,6 @@ public class CavaleiroDoSaber : Player
         
     }
 
-    public override void Heal(int healAmount)
-    {
-        Debug.Log("Curando");
-    }
 
-    public override void Respawn()
-    {
-        Debug.Log("Revivendo");
-    }
-
-    public override void TakeDamage(int damage)
-    {
-        Debug.Log("Tomando dano");
-    }
 
 }
