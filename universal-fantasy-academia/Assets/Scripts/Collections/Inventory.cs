@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private List<Item> items = new List<Item>();
+    private List<ItemScriptableObject> items = new List<ItemScriptableObject>();
     private int maxItems = 10;
-    private int currentItems = 0;
-    private int currentSelectedIndex = 0;
-    private Item currentItem;
 
     public static Inventory Instance { get; private set; }
 
@@ -25,7 +22,7 @@ public class Inventory : MonoBehaviour
     }
 
 
-    public void AddItem(Item item)
+    public void AddItem(ItemScriptableObject item)
     {
         if (items.Count >= maxItems)
         {
@@ -46,7 +43,7 @@ public class Inventory : MonoBehaviour
 
     }
 
-    public void RemoveItem(Item item)
+    public void RemoveItem(ItemScriptableObject item)
     {
         item.RemoveQuantity();
         if (item.quantity <= 0)
@@ -55,7 +52,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void UseItem(Item item)
+    public void UseItem(ItemScriptableObject item)
     {
         item.RemoveQuantity();
         if (item.quantity <= 0)

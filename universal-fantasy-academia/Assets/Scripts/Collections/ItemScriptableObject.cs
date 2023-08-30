@@ -1,20 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item : MonoBehaviour
+[CreateAssetMenu(fileName = "New Item", menuName = "Game Items/New Item", order = 1)]
+public class ItemScriptableObject : ScriptableObject
 {
     public GameObject prefab;
-    public Sprite icon;
-    public string itemName;
-    public string description;
+    public Sprite Icon;
+    public string Name = "Item Name";
+    [TextArea(15, 20)]
+    public string Description = "Item Description";
+    public int Value = 0;
     public int quantity;
     public int maxQuantity;
+    public event Action<int> OnItemUsed;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Use()
     {
-        // Precisa inicializar algo aqui ou somente nas classes filhas?
+        OnItemUsed?.Invoke(Value);
     }
 
     public void Collect()
@@ -50,7 +54,6 @@ public abstract class Item : MonoBehaviour
     }
 
 
-
-    public abstract void Use();
+    
 
 }
