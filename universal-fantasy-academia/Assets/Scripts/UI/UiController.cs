@@ -5,11 +5,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class UiController : MonoBehaviour
-{
-
+{   
+    [Header("InventoryHud")]
     public GameObject InventoryPanel, InventoryContent, PrefabItem;
     public GameObject movPlayer, camera;
-
 
 
     #region Button Actions

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Data;
 //using System.Numerics;
 using JetBrains.Annotations;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public abstract class Player : MonoBehaviour
 {   
     [SerializeField]
-    private float speed, jumpHeight, gravityValue, rotation;
+    private float speed, runSpeed, jumpHeight, gravityValue, rotation;
     [SerializeField]
     private Transform cameraTransform, playerTransform, orientation;
     [SerializeField]
@@ -17,6 +18,7 @@ public abstract class Player : MonoBehaviour
     private Vector3 playerVelocity;
     private bool playerIsGrounded;
     private Vector2 moveInput;
+
 
     void Awake()
     {
@@ -51,18 +53,32 @@ public abstract class Player : MonoBehaviour
         
     }
 
-    public void ActiveInventory(InputAction.CallbackContext context)
+    void StopRun()
     {
-        if(context.performed)
+        if(speed >= 10)
         {
+            speed -= 5;
+        }else
+        {
+            return;
+        }	
 
+    }
+        
+    public void Run(InputAction.CallbackContext context)
+    {
+        if(context.performed && playerIsGrounded && speed <= 5)
+        {
+            speed *= runSpeed;
+            Invoke(nameof(StopRun), 10);
         }
     }
-    
+
     public void Move(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
     }
+
 
     /// <summary>
     /// Método para pular.
