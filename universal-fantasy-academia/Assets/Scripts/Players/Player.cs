@@ -20,9 +20,6 @@ public abstract class Player : MonoBehaviour
 
     void Awake()
     {
-        
-        Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
         controller = GetComponent<CharacterController>();
     }
 
@@ -52,6 +49,14 @@ public abstract class Player : MonoBehaviour
         playerVelocity.y += gravityValue * Time.fixedDeltaTime; 
         controller.Move(playerVelocity * Time.fixedDeltaTime);
         
+    }
+
+    public void ActiveInventory(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+
+        }
     }
     
     public void Move(InputAction.CallbackContext context)
