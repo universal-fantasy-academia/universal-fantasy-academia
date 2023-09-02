@@ -19,9 +19,19 @@ public abstract class Player : MonoBehaviour
     private bool playerIsGrounded;
     private Vector2 moveInput;
 
+    public int XP { get; private set; }
+    public int HP { get; private set; }
+
+    public UiController uiController;
 
     void Awake()
     {
+        //Pega p valor do XP e HP do player no playerprefs
+        int xp = PlayerPrefs.GetInt("XP", 1);
+        LevelUp(xp);
+        int hp = PlayerPrefs.GetInt("HP", 50);
+        ChangeHp(hp);
+
         controller = GetComponent<CharacterController>();
     }
 
@@ -103,6 +113,7 @@ public abstract class Player : MonoBehaviour
     public void Die() 
     {
         //TODO: Implementar morte
+        Debug.Log("Morreu");
     }
 
     public virtual void Respawn()
@@ -110,16 +121,43 @@ public abstract class Player : MonoBehaviour
 
     }
 
+    public void ChangeHp(int hp)
+    {
+        HP = hp;
+        uiController.OnChangeHp(hp);
+    }
+
 
     public virtual void TakeDamage(int damage)
     {
-
+        if (HP - damage <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            ChangeHp(HP - damage);
+        }
     }
 
     public virtual void Heal(int healAmount)
     {
-
+        if (HP + healAmount > 100)
+        {
+            HP = 100;
+        }
+        else
+        {
+            ChangeHp(HP + healAmount);
+        }
     }
+
+    public void LevelUp(int xpAmount)
+    {
+        uiController.OnChangeXp(XP + xpAmount);
+        XP += xpAmount;
+    }
+
 
 
     // public abstract void CollectItem(Item item);

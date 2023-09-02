@@ -3,23 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Game Items/New Item", order = 1)]
-public class ItemScriptableObject : ScriptableObject
+// [CreateAssetMenu(fileName = "New Item", menuName = "Game Items/New Item", order = 1)]
+public abstract class ItemScriptableObject : ScriptableObject
 {
-    public GameObject prefab;
+    [NonSerialized]
+    public GameObject InventorySlot;
     public Sprite Icon;
     public string Name = "Item Name";
     [TextArea(15, 20)]
     public string Description = "Item Description";
     public int Value = 0;
-    public int quantity;
+    [NonSerialized]
+    public int quantity = 0;
     public int maxQuantity;
-    public event Action<int> OnItemUsed;
 
-    public void Use()
-    {
-        OnItemUsed?.Invoke(Value);
-    }
+    public abstract void Use(Player playerScript);
 
     public void Collect()
     {
@@ -31,26 +29,26 @@ public class ItemScriptableObject : ScriptableObject
         Inventory.Instance.RemoveItem(this);
     }
 
-    public void AddQuantity(int quantity = 1)
+    public void AddQuantity(int _quantity = 1)
     {
-        if (this.quantity + quantity > maxQuantity)
+        if (this.quantity + _quantity > maxQuantity)
         {
             this.quantity = maxQuantity;
             return;
         }
 
-        this.quantity += quantity;
+        this.quantity += _quantity;
     }
 
-    public void RemoveQuantity(int quantity = 1)
+    public void RemoveQuantity(int _quantity = 1)
     {
-        if (this.quantity - quantity < 0)
+        if (this.quantity - _quantity < 0)
         {
             this.quantity = 0;
             return;
         }
 
-        this.quantity -= quantity;
+        this.quantity -= _quantity;
     }
 
 

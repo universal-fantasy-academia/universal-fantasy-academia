@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,14 +11,31 @@ public class UiController : MonoBehaviour
     public GameObject InventoryPanel, InventoryContent, PrefabItem;
     public GameObject movPlayer, camera;
 
+    [Header("XP and HP Hud")]
+    public TextMeshProUGUI XP;
+    public TextMeshProUGUI HP;
 
-    #region Button Actions
+    
 
     public void Awake()
     {
         InventoryPanel.SetActive(false);
     }
 
+
+    public void OnChangeHp(int hp)
+    {
+        //PlayerPrefs.SetInt("HP", hp);
+        HP.text = hp.ToString();
+    }
+
+    public void OnChangeXp(int xp)
+    {
+        //PlayerPrefs.SetInt("XP", xp);
+        XP.text = xp.ToString();
+    }
+
+    #region Button Actions
 
     public void OpenInventory()
     {

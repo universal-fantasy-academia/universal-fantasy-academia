@@ -11,6 +11,7 @@ public class ItemObject : MonoBehaviour
         if (Item != null)
         {
             transform.GetChild(0).GetComponent<MeshRenderer>().material.mainTexture = Item.Icon.texture;
+            Item.quantity = 0;
         }
     }
 
@@ -25,7 +26,12 @@ public class ItemObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            if (Item.quantity < Item.maxQuantity)
+            {
+                Item.Collect();
+                Destroy(gameObject);
+            }
+            
         }
     }
 }
