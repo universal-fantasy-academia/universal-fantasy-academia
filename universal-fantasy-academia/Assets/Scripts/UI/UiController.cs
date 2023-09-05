@@ -19,7 +19,7 @@ public class UiController : MonoBehaviour
 
     public void Awake()
     {
-        InventoryPanel.SetActive(false);
+        //InventoryPanel.SetActive(false);
     }
 
 

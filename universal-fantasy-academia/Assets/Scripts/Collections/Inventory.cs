@@ -15,9 +15,17 @@ public class Inventory : MonoBehaviour
     private List<ItemScriptableObject> items = new List<ItemScriptableObject>();
     private int maxItems = 10;
 
-    public Player playerScript;
+    private Player playerScript;
 
     public static Inventory Instance { get; private set; }
+
+    void Start()
+    {
+        if(GameObject.FindGameObjectWithTag("Player"))
+        {
+            playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        }
+    }
 
     void Awake()
     {
@@ -88,7 +96,8 @@ public class Inventory : MonoBehaviour
         }
         item.InventorySlot.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.quantity.ToString();
 
-        item.Use(playerScript);
+        if (playerScript != null)
+            item.Use(playerScript);
     }
 
 
