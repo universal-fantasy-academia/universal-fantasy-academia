@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,6 +21,7 @@ public class CavaleiroDoSaber : Player
         {            
             Debug.Log("Atacando com a espada");
             animatorSword.SetTrigger(attackBoolAnimator);
+            
         }
         
     }
@@ -31,6 +33,14 @@ public class CavaleiroDoSaber : Player
             Debug.Log("Bloqueando com a espada");
         }
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Bomb"))
+        {
+            TakeDamage(20);
+        }
     }
 
 

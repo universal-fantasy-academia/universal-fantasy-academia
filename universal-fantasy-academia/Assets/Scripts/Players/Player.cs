@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-//using System.Numerics;
 using JetBrains.Annotations;
 using UnityEngine.UI;
 using UnityEngine;
@@ -17,7 +16,9 @@ public abstract class Player : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool playerIsGrounded;
+    private float playerMagnitude;
     private Vector2 moveInput;
+    private Transform respawn;
 
     public int XP { get; private set; }
     public int HP { get; private set; }
@@ -33,6 +34,9 @@ public abstract class Player : MonoBehaviour
         ChangeHp(hp);
 
         controller = GetComponent<CharacterController>();
+       
+
+        respawn = GameObject.FindGameObjectWithTag("Respawn").transform;
     }
 
     void Update()
@@ -60,18 +64,20 @@ public abstract class Player : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.fixedDeltaTime; 
         controller.Move(playerVelocity * Time.fixedDeltaTime);
+
+
+        if(Input.GetKeyDown(KeyCode.F1))
+        Respawn();
         
     }
 
     void StopRun()
     {
         if(speed >= 10)
-        {
-            speed -= 5;
-        }else
-        {
-            return;
-        }	
+        speed -= 5;
+        else
+        return;
+    
 
     }
         
@@ -113,11 +119,19 @@ public abstract class Player : MonoBehaviour
     public void Die() 
     {
         //TODO: Implementar morte
+        //DeathScreen.Play;
+        Respawn();
+        //HP = 50;
         Debug.Log("Morreu");
     }
 
+
     public virtual void Respawn()
     {
+            //coin -= coin * 0.10f;
+            //PlayerPrefs.SetInt("HP", 50);
+            playerTransform.position = respawn.position;
+            playerTransform.forward = respawn.forward;
 
     }
 
