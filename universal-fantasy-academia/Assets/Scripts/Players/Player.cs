@@ -159,6 +159,13 @@ public abstract class Player : MonoBehaviour
     }
 
 
+    //Coloca a arma na mão do player
+    public void EquipWeapon(ItemScriptableObjectWeapon weapon)
+    {
+        
+    }
+
+
 
     // public abstract void CollectItem(Item item);
 
