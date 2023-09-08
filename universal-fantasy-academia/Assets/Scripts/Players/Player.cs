@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using JetBrains.Annotations;
 using UnityEngine.UI;
 using UnityEngine;
@@ -18,7 +17,8 @@ public abstract class Player : MonoBehaviour
     private bool playerIsGrounded;
     private float playerMagnitude;
     private Vector2 moveInput;
-    private Transform respawn;
+    private TokenHealer tokenHealer;
+    public Transform respawn;
 
     public int XP { get; private set; }
     public int HP { get; private set; }
@@ -33,17 +33,18 @@ public abstract class Player : MonoBehaviour
         int hp = PlayerPrefs.GetInt("HP", 50);
         ChangeHp(hp);
 
+        //tokenHealer = GameObject.FindGameObjectWithTag("TokenHealer").GetComponent<TokenHealer>();
+
         controller = GetComponent<CharacterController>();
-       
 
         respawn = GameObject.FindGameObjectWithTag("Respawn").transform;
     }
 
     void Update()
     {
-        playerIsGrounded = controller.isGrounded; 
+        playerIsGrounded = controller.isGrounded;
 
-        if(playerIsGrounded && playerVelocity.y < 0) //Pega a informação do player sobre ele está no chão, se estiver zera o vetor y 
+        if(playerIsGrounded && playerVelocity.y < 0) //Pega a informação do player sobre ele está no chão, se estiver zera o vetor y
         {
             playerVelocity.y = 0;
         }
@@ -53,7 +54,7 @@ public abstract class Player : MonoBehaviour
     {
         Vector3 viewDir = playerTransform.position - new Vector3(cameraTransform.position.x, playerTransform.position.y, cameraTransform.position.z);
         orientation.rotation = Quaternion.LookRotation(viewDir.normalized, Vector3.up);
-        
+
         Vector3 dir = orientation.forward * moveInput.y + orientation.right * moveInput.x;
         controller.Move(dir.normalized * speed * Time.fixedDeltaTime);
 
@@ -62,13 +63,13 @@ public abstract class Player : MonoBehaviour
             playerTransform.forward = Vector3.Slerp(playerTransform.forward, dir.normalized, Time.fixedDeltaTime * rotation);
         }
 
-        playerVelocity.y += gravityValue * Time.fixedDeltaTime; 
+        playerVelocity.y += gravityValue * Time.fixedDeltaTime;
         controller.Move(playerVelocity * Time.fixedDeltaTime);
 
 
         if(Input.GetKeyDown(KeyCode.F1))
         Respawn();
-        
+
     }
 
     void StopRun()
@@ -77,10 +78,10 @@ public abstract class Player : MonoBehaviour
         speed -= 5;
         else
         return;
-    
+
 
     }
-        
+
     public void Run(InputAction.CallbackContext context)
     {
         if(context.performed && playerIsGrounded && speed <= 5)
@@ -116,9 +117,11 @@ public abstract class Player : MonoBehaviour
     public abstract void Block(InputAction.CallbackContext context);
 
 
-    public void Die() 
+    public void Die()
     {
         //TODO: Implementar morte
+        int hp = PlayerPrefs.GetInt("HP", 50);
+        ChangeHp(hp);
         //DeathScreen.Play;
         Respawn();
         //HP = 50;
@@ -128,11 +131,13 @@ public abstract class Player : MonoBehaviour
 
     public virtual void Respawn()
     {
-            //coin -= coin * 0.10f;
-            //PlayerPrefs.SetInt("HP", 50);
-            playerTransform.position = respawn.position;
-            playerTransform.forward = respawn.forward;
+        Debug.Log(respawn.position);
 
+        //coin -= coin * 0.10f;
+        //PlayerPrefs.SetInt("HP", 50);
+        playerTransform.position = respawn.position;
+        playerTransform.forward = respawn.forward;
+        Debug.Log("Respawnando - " + playerTransform.position);
     }
 
     public void ChangeHp(int hp)
@@ -176,7 +181,7 @@ public abstract class Player : MonoBehaviour
     //Coloca a arma na mão do player
     public void EquipWeapon(ItemScriptableObjectWeapon weapon)
     {
-        
+
     }
 
 
@@ -191,15 +196,17 @@ public abstract class Player : MonoBehaviour
         //TODO: Verificar se entrou no trigger de algum objeto interagível
         // Se sim, pegar o script Interactable e chamar o método Interact()
 
-        if (context.performed)
+        if (context.performed && tokenHealer.canHeal == true)
         {
-            Debug.Log("Interagindo");
+            int healAllHP = 100 - HP;
+            Heal(healAllHP);
+            Debug.Log("Curando");
         }
     }
 
 
 
-    
+
 }
 
 
