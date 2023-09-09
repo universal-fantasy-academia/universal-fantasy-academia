@@ -16,7 +16,7 @@ public class RespawnController : MonoBehaviour
             if(playerScript != null)
             {
                 playerScript.respawn = gameObject.transform;
-            Debug.Log("Salvando novo Respawn "+ gameObject.transform.position);
+                Debug.Log("Salvando novo Respawn "+ gameObject.transform.position);
             }
         }
     }

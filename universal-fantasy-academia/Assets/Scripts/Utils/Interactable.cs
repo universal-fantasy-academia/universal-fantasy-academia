@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Interactable : MonoBehaviour
 {
     public bool isInRange;
-    public KeyCode interactKey;
     public string interactMessage;
-    public GameObject interactMessageObject;
-    public GameObject interactMessageTextObject;
-    public GameObject interactMessageBackgroundObject;
+    public GameObject interactUIObject;
+    public TextMeshProUGUI interactMessageTextObject;
+    //public GameObject interactMessageBackgroundObject;
     public GameObject interactMessageIconObject;
     public Sprite interactMessageIcon;
     public bool isInteractable = true;
@@ -18,19 +18,10 @@ public class Interactable : MonoBehaviour
     public delegate void InteractDelegate();
     public InteractDelegate interactDelegate;
 
-    private void Start()
-    {
-        if (interactMessageObject != null)
+    private void Start() {
+        if (interactUIObject != null)
         {
-            interactMessageObject.SetActive(false);
-        }
-    }
-
-    private void Update()
-    {
-        if (isInRange && Input.GetKeyDown(interactKey) && isInteractable)
-        {
-            Interact();
+            interactUIObject.SetActive(false);
         }
     }
 
@@ -48,11 +39,11 @@ public class Interactable : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isInRange = true;
-            if (interactMessageObject != null)
+            if (interactUIObject != null)
             {
-                interactMessageObject.SetActive(true);
-                interactMessageTextObject.GetComponent<TMPro.TextMeshProUGUI>().text = interactMessage;
-                interactMessageIconObject.GetComponent<SpriteRenderer>().sprite = interactMessageIcon;
+                interactUIObject.SetActive(true);
+                interactMessageTextObject.text = interactMessage;
+                //interactMessageIconObject.GetComponent<SpriteRenderer>().sprite = interactMessageIcon;
             }
         }
     }
@@ -62,9 +53,9 @@ public class Interactable : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isInRange = false;
-            if (interactMessageObject != null)
+            if (interactUIObject != null)
             {
-                interactMessageObject.SetActive(false);
+                interactUIObject.SetActive(false);
             }
         }
     }

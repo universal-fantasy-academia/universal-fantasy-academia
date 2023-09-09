@@ -17,7 +17,9 @@ public abstract class Player : MonoBehaviour
     private bool playerIsGrounded;
     private float playerMagnitude;
     private Vector2 moveInput;
-    private TokenHealer tokenHealer;
+
+    private Interactable interactable;
+
     public Transform respawn;
 
     public int XP { get; private set; }
@@ -32,8 +34,6 @@ public abstract class Player : MonoBehaviour
         LevelUp(xp);
         int hp = PlayerPrefs.GetInt("HP", 50);
         ChangeHp(hp);
-
-        //tokenHealer = GameObject.FindGameObjectWithTag("TokenHealer").GetComponent<TokenHealer>();
 
         controller = GetComponent<CharacterController>();
 
@@ -177,6 +177,14 @@ public abstract class Player : MonoBehaviour
         XP += xpAmount;
     }
 
+    public void InteractInput(InputAction.CallbackContext context)
+    {
+        if(context.performed && interactable.isInRange && interactable.isInteractable)
+        {
+            Debug.Log("Test");
+            interactable.Interact();
+        }
+    }
 
     //Coloca a arma na mão do player
     public void EquipWeapon(ItemScriptableObjectWeapon weapon)
@@ -185,24 +193,11 @@ public abstract class Player : MonoBehaviour
     }
 
 
-
     // public abstract void CollectItem(Item item);
 
     // public abstract void UseItem(Item item);
 
 
-    public virtual void Interact(InputAction.CallbackContext context)
-    {
-        //TODO: Verificar se entrou no trigger de algum objeto interagível
-        // Se sim, pegar o script Interactable e chamar o método Interact()
-
-        if (context.performed && tokenHealer.canHeal == true)
-        {
-            int healAllHP = 100 - HP;
-            Heal(healAllHP);
-            Debug.Log("Curando");
-        }
-    }
 
 
 
