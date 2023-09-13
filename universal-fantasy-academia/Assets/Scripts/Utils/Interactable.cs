@@ -34,29 +34,4 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            isInRange = true;
-            if (interactUIObject != null)
-            {
-                interactUIObject.SetActive(true);
-                interactMessageTextObject.text = interactMessage;
-                //interactMessageIconObject.GetComponent<SpriteRenderer>().sprite = interactMessageIcon;
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            isInRange = false;
-            if (interactUIObject != null)
-            {
-                interactUIObject.SetActive(false);
-            }
-        }
-    }
 }

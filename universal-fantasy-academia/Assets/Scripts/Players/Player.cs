@@ -18,6 +18,8 @@ public abstract class Player : MonoBehaviour
     private float playerMagnitude;
     private Vector2 moveInput;
 
+    public InteractSensor interactSensor;
+
     private Interactable interactable;
 
     public Transform respawn;
@@ -179,7 +181,7 @@ public abstract class Player : MonoBehaviour
 
     public void InteractInput(InputAction.CallbackContext context)
     {
-        if(context.performed && interactable.isInRange && interactable.isInteractable)
+        if(context.performed)
         {
             Debug.Log("Test");
             interactable.Interact();

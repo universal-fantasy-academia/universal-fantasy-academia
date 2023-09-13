@@ -723,7 +723,7 @@ GameObject:
   - component: {fileID: 193005269}
   m_Layer: 0
   m_Name: TOKENHEALER (1)
-  m_TagString: Interactable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -840,6 +840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 202229077}
   - component: {fileID: 202229078}
+  - component: {fileID: 202229079}
   m_Layer: 0
   m_Name: InteractSensor
   m_TagString: Untagged
@@ -870,11 +871,23 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202229076}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &202229079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202229076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd910612d22a8e947ae85835659ed441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &214181334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5242919333701221530, guid: 2d7e2b6cc541ccc43a936186156f39d8, type: 3}
@@ -2776,7 +2789,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712773225}
-  m_LocalRotation: {x: 0.22247069, y: 0.00000001677518, z: -0.0000000038279158, w: 0.9749394}
+  m_LocalRotation: {x: 0.22247069, y: -0.00000001677518, z: 0.0000000038279158, w: 0.9749394}
   m_LocalPosition: {x: 0.41546285, y: 2.3346763, z: -4.569871}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3665,7 +3678,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 84816464}
   m_HandleRect: {fileID: 84816463}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3986,6 +3999,7 @@ MonoBehaviour:
   playerTransform: {fileID: 942893002}
   orientation: {fileID: 75793564}
   controller: {fileID: 942893005}
+  interactSensor: {fileID: 0}
   respawn: {fileID: 0}
   uiController: {fileID: 1720837636}
   animatorSword: {fileID: 75037998}
@@ -6226,7 +6240,7 @@ GameObject:
   - component: {fileID: 1491377377}
   m_Layer: 0
   m_Name: TOKENHEALER
-  m_TagString: Interactable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8122,7 +8136,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088686259}
-  m_LocalRotation: {x: 0.22247066, y: 0.000000008387589, z: -0.000000001913957, w: 0.9749394}
+  m_LocalRotation: {x: 0.22247066, y: -0.000000008387591, z: 0.0000000019139574, w: 0.9749394}
   m_LocalPosition: {x: 0, y: 0.00000047683716, z: -0.0000009536743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
