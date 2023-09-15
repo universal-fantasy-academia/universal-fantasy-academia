@@ -11,6 +11,7 @@ public class InteractSensor : MonoBehaviour
         {
             interact.Add(interactable);
             InteractView();
+            Debug.Log(interact);
         }
     }
 
@@ -49,6 +50,15 @@ public class InteractSensor : MonoBehaviour
             }
 
         }
+    }
+
+    public Interactable GetInteractable()
+    {
+        if(interact.Count > 0)
+        {
+            return interact[0];
+        }
+        return null;
     }
 
 }

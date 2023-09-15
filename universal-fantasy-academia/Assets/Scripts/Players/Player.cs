@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
-using UnityEngine.UI;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,13 +12,11 @@ public abstract class Player : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool playerIsGrounded;
-    private float playerMagnitude;
     private Vector2 moveInput;
 
     public InteractSensor interactSensor;
 
-    private Interactable interactable;
-
+    [NonSerialized]
     public Transform respawn;
 
     public int XP { get; private set; }
@@ -122,8 +117,8 @@ public abstract class Player : MonoBehaviour
     public void Die()
     {
         //TODO: Implementar morte
-        int hp = PlayerPrefs.GetInt("HP", 50);
-        ChangeHp(hp);
+        //int hp = PlayerPrefs.SetInt("HP", HP);
+        //ChangeHp(hp);
         //DeathScreen.Play;
         Respawn();
         //HP = 50;
@@ -144,8 +139,8 @@ public abstract class Player : MonoBehaviour
 
     public void ChangeHp(int hp)
     {
-        HP = hp;
-        uiController.OnChangeHp(hp);
+        HP = Mathf.Min(hp, 100);
+        uiController.OnChangeHp(HP);
     }
 
 
@@ -163,14 +158,14 @@ public abstract class Player : MonoBehaviour
 
     public virtual void Heal(int healAmount)
     {
-        if (HP + healAmount > 100)
-        {
-            HP = 100;
-        }
-        else
-        {
-            ChangeHp(HP + healAmount);
-        }
+//        if (HP + healAmount > 100)
+//        {
+//            HP = 100;
+//        }
+
+
+        ChangeHp(HP + healAmount);
+
     }
 
     public void LevelUp(int xpAmount)
@@ -183,15 +178,17 @@ public abstract class Player : MonoBehaviour
     {
         if(context.performed)
         {
-            Debug.Log("Test");
-            interactable.Interact();
+            Interactable interactable = interactSensor.GetInteractable();
+            if(interactable != null)
+            {
+                interactable.Interact();
+            }
         }
     }
 
     //Coloca a arma na mão do player
     public void EquipWeapon(ItemScriptableObjectWeapon weapon)
     {
-
     }
 
 

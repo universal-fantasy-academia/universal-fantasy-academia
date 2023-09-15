@@ -25,7 +25,7 @@ public class UiController : MonoBehaviour
 
     public void OnChangeHp(int hp)
     {
-        //PlayerPrefs.SetInt("HP", hp);
+        PlayerPrefs.SetInt("HP", hp);
         HP.text = hp.ToString();
     }
 

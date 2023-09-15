@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Interactable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour
 {
     public bool isInRange;
     public string interactMessage;
+    public bool isInteractable = true;
     public GameObject interactUIObject;
     public TextMeshProUGUI interactMessageTextObject;
     //public GameObject interactMessageBackgroundObject;
     public GameObject interactMessageIconObject;
     public Sprite interactMessageIcon;
-    public bool isInteractable = true;
 
     //Delegate to be called when the player interacts with this object
     public delegate void InteractDelegate();
