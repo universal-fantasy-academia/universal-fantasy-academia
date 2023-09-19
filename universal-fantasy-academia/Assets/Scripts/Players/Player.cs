@@ -1,13 +1,15 @@
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public abstract class Player : MonoBehaviour
 {   
     [SerializeField]
-    private float speed, runSpeed, jumpHeight, gravityValue, rotation;
+    public float speed, runSpeed, jumpHeight, gravityValue, rotation;
     [SerializeField]
-    private Transform cameraTransform, playerTransform, orientation;
+    public Transform cameraTransform, playerTransform, orientation;
     [SerializeField]
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -19,10 +21,57 @@ public abstract class Player : MonoBehaviour
     [NonSerialized]
     public Transform respawn;
 
-    public int XP { get; private set; }
-    public int HP { get; private set; }
+    public GameObject playerSlot;
+    public PlayerScriptableObject playerSelected;
+    public PlayerScriptableObject cavaleiroDoSaber;
+    public PlayerScriptableObject cientistaAlquimico;
+    public PlayerScriptableObject guerreiroMatematico;
+    public PlayerScriptableObject ladinoDasSombas;
+
+    public int XP = 1;
+    public int HP = 50;
 
     public UiController uiController;
+
+
+    private Animator animator;
+    private string attackBoolAnimator;
+
+
+    private string PLAYER_PREFS_PLAYER_SELECTED = "PlayerSelected";
+
+
+    void Start()
+    {
+        PlayerData playerData = SaveSystem.LoadPlayer();
+        if(playerData != null)
+        {
+            SetPlayerData(playerData);
+        }
+
+        // int playerId = PlayerPrefs.GetInt(PLAYER_PREFS_PLAYER_SELECTED, 0);
+        // switch (playerId)
+        // {
+        //     case 0:
+        //         ChangePlayer(cavaleiroDoSaber);
+        //         break;
+        //     case 1:
+        //         ChangePlayer(cientistaAlquimico);
+        //         break;
+        //     case 2:
+        //         ChangePlayer(guerreiroMatematico);
+        //         break;
+        //     case 3:
+        //         ChangePlayer(ladinoDasSombas);
+        //         break;
+        //     default:
+        //         ChangePlayer(cavaleiroDoSaber);
+        //         break;
+        // }
+
+        UpdateAnimator();
+        
+    }
 
     void Awake()
     {
@@ -45,10 +94,41 @@ public abstract class Player : MonoBehaviour
         {
             playerVelocity.y = 0;
         }
+
+
+        if(Input.GetKeyDown(KeyCode.F2))
+        {
+            int currentPlayer = (int)playerSelected.playerType;
+            int nextPlayer = (currentPlayer + 1) % 4;
+            //Get name from enum
+            string name = Enum.GetName(typeof(PlayerClass), nextPlayer);
+            Debug.Log("Player: " + name);
+            switch (nextPlayer)
+            {
+                case 0:
+                    ChangePlayer(cavaleiroDoSaber);
+                    break;
+                case 1:
+                    ChangePlayer(cientistaAlquimico);
+                    break;
+                case 2:
+                    ChangePlayer(guerreiroMatematico);
+                    break;
+                case 3:
+                    ChangePlayer(ladinoDasSombas);
+                    break;
+                default:
+                    ChangePlayer(cavaleiroDoSaber);
+                    break;
+            }
+        }
     }
 
     void FixedUpdate()
     {
+        VerifyHp();
+
+
         Vector3 viewDir = playerTransform.position - new Vector3(cameraTransform.position.x, playerTransform.position.y, cameraTransform.position.z);
         orientation.rotation = Quaternion.LookRotation(viewDir.normalized, Vector3.up);
 
@@ -65,10 +145,84 @@ public abstract class Player : MonoBehaviour
 
 
         if(Input.GetKeyDown(KeyCode.F1))
-        Respawn();
+        {    
+            Respawn();
+        }
+
 
     }
 
+
+    private void SetPlayerData(PlayerData playerData)
+    {
+        ChangeXP(playerData.xp);
+        ChangeHp(playerData.hp);
+        speed = playerData.speed;
+        runSpeed = playerData.runSpeed;
+        jumpHeight = playerData.jumpHeight;
+        gravityValue = playerData.gravityValue;
+        rotation = playerData.rotation;
+
+        transform.position = new Vector3(playerData.position[0], playerData.position[1], playerData.position[2]);
+        transform.rotation = new Quaternion(playerData.rotationPlayer[0], playerData.rotationPlayer[1], playerData.rotationPlayer[2], 0);
+
+        // cameraTransform.position = new Vector3(playerData.positionCamera[0], playerData.positionCamera[1], playerData.positionCamera[2]);
+        // cameraTransform.rotation = new Quaternion(playerData.rotationCamera[0], playerData.rotationCamera[1], playerData.rotationCamera[2], 0);
+
+        switch (playerData.playerId)
+        {
+            case 0:
+                ChangePlayer(cavaleiroDoSaber);
+                break;
+            case 1:
+                ChangePlayer(cientistaAlquimico);
+                break;
+            case 2:
+                ChangePlayer(guerreiroMatematico);
+                break;
+            case 3:
+                ChangePlayer(ladinoDasSombas);
+                break;
+            default:
+                ChangePlayer(cavaleiroDoSaber);
+                break;
+        }
+    }
+
+
+    private void UpdateAnimator()
+    {
+        animator = GetComponentInChildren<Animator>();
+        //Debug.Log(animator);
+        animator.runtimeAnimatorController = playerSelected.animatorController;
+        attackBoolAnimator = playerSelected.attackBoolAnimator;
+    }
+
+    public void PlayAttackAnimation()
+    {
+        if (!animator)
+        {
+            UpdateAnimator();
+        }
+        animator.SetTrigger(attackBoolAnimator);
+    }
+
+
+
+    public void ChangePlayer(PlayerScriptableObject player)
+    {
+        playerSlot.SetActive(false);
+        Destroy(playerSlot.transform.GetChild(0).gameObject);
+        Instantiate(player.playerPrefab, playerSlot.transform.position, playerSlot.transform.rotation, playerSlot.transform);
+        playerSlot.SetActive(true);
+
+        UpdateAnimator();
+
+        //PlayerPrefs.SetInt("Player", Array.IndexOf(new PlayerScriptableObject[] { cavaleiroDoSaber, cientistaAlquimico, guerreiroMatematico, ladinoDasSombas }, player.GetComponent<PlayerScriptableObject>()));
+        PlayerPrefs.SetInt(PLAYER_PREFS_PLAYER_SELECTED, (int)player.playerType);
+        playerSelected = player;
+    }
+    
     void StopRun()
     {
         if(speed >= 10)
@@ -116,14 +270,16 @@ public abstract class Player : MonoBehaviour
 
     public void Die()
     {
-        //TODO: Implementar morte
-        //int hp = PlayerPrefs.SetInt("HP", HP);
-        //ChangeHp(hp);
+        Debug.Log("No céu tem pão? E morreu!");
         //DeathScreen.Play;
         Respawn();
-        //HP = 50;
-        Debug.Log("Morreu");
+        HP = 50;
+        PlayerPrefs.SetInt("HP", HP);
+        ChangeHp(HP);
     }
+
+
+
 
 
     public virtual void Respawn()
@@ -143,17 +299,27 @@ public abstract class Player : MonoBehaviour
         uiController.OnChangeHp(HP);
     }
 
-
-    public virtual void TakeDamage(int damage)
+    private void VerifyHp()
     {
-        if (HP - damage <= 0)
+        if (HP <= 0)
         {
             Die();
         }
-        else
-        {
-            ChangeHp(HP - damage);
-        }
+    }
+
+
+    public virtual void TakeDamage(int damage)
+    {
+        // if (HP - damage <= 0)
+        // {
+        //     Die();
+        // }
+        // else
+        // {
+        //     ChangeHp(HP - damage);
+        // }
+
+        ChangeHp(HP - damage);
     }
 
     public virtual void Heal(int healAmount)
@@ -172,6 +338,12 @@ public abstract class Player : MonoBehaviour
     {
         uiController.OnChangeXp(XP + xpAmount);
         XP += xpAmount;
+    }
+
+    public void ChangeXP(int xp)
+    {
+        uiController.OnChangeXp(xp);
+        XP = xp;
     }
 
     public void InteractInput(InputAction.CallbackContext context)

@@ -7,6 +7,13 @@ using UnityEngine.InputSystem;
 
 public class UiController : MonoBehaviour
 {   
+
+    [Header("Options")]
+    public GameObject OptionsPanel;
+    public GameObject saveConfirmationMessage;
+    public AudioController audioController;
+
+
     [Header("InventoryHud")]
     public GameObject InventoryPanel, InventoryContent, PrefabItem;
     public GameObject movPlayer, camera;
@@ -15,11 +22,31 @@ public class UiController : MonoBehaviour
     public TextMeshProUGUI XP;
     public TextMeshProUGUI HP;
 
+    [Header("System")]
+    public GameController gameController;
+
+    private TextMeshProUGUI saveConfirmationTextMeshPro;
+
     
+    void Start()
+    {
+        if (saveConfirmationMessage)
+        {
+            saveConfirmationTextMeshPro = saveConfirmationMessage.GetComponentInChildren<TextMeshProUGUI>();
+        }
+    }
 
     public void Awake()
     {
-        //InventoryPanel.SetActive(false);
+        if (InventoryPanel)
+        {
+            InventoryPanel.SetActive(false);
+        }
+
+        if (OptionsPanel)
+        {
+            OptionsPanel.SetActive(false);
+        }
     }
 
 
@@ -50,6 +77,73 @@ public class UiController : MonoBehaviour
             movPlayer.GetComponent<PlayerInput>().enabled = false;
             camera.SetActive(false);
             InventoryPanel.SetActive(true);
+        }
+    }
+
+
+    public void SaveGame()
+    {
+        try
+        {
+            gameController.SaveGame();
+            
+            //Change text
+            saveConfirmationTextMeshPro.text = "Salvo!";
+            //Change color
+            saveConfirmationTextMeshPro.color = Color.green;
+            //Show message
+            saveConfirmationMessage.SetActive(true);
+            //Hide message after 2 seconds
+            StartCoroutine(VisibilityUtils.HideGameObjectAfterTime(saveConfirmationMessage, 2f));
+
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError(e);
+            //Change text
+            saveConfirmationTextMeshPro.text = "Erro ao salvar!";
+            //Change color
+            saveConfirmationTextMeshPro.color = Color.red;
+            //Show message
+            saveConfirmationMessage.SetActive(true);
+            //Hide message after 2 seconds
+            StartCoroutine(VisibilityUtils.HideGameObjectAfterTime(saveConfirmationMessage, 2f));
+        }
+    }
+
+    
+
+
+    public void OpenOptionsMenu()
+    {
+        if (OptionsPanel)
+        {
+            if (audioController)
+            {
+                audioController.SetSliderValues();
+            }
+
+            if (movPlayer)
+            {
+                movPlayer.GetComponent<PlayerInput>().enabled = false;
+                camera.SetActive(false);
+            }
+            
+            OptionsPanel.SetActive(true);
+        }
+    }
+
+    public void CloseOptionsMenu()
+    {
+        if (OptionsPanel)
+        {
+            OptionsPanel.SetActive(false);
+
+            if (movPlayer)
+            {
+                movPlayer.GetComponent<PlayerInput>().enabled = true;
+                camera.SetActive(true);
+            }
         }
     }
 

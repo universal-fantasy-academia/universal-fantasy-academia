@@ -1,26 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Serialization;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CavaleiroDoSaber : Player
-{   
+public class GuerreiroMatematico : Player
+{
     // [SerializeField]
     // private Animator animatorSword;
     
     // [SerializeField]
     // private string attackBoolAnimator; 
-    //private bool isAttacking;
+    // //private bool isAttacking;
 
 
     public override void Attack(InputAction.CallbackContext context)
     {
         if(context.performed)
         {            
-            Debug.Log("Atacando com a espada");
-            // animatorSword.SetTrigger(attackBoolAnimator);
+            Debug.Log("Atacando com o 3.14");
             base.PlayAttackAnimation();
             
         }
@@ -31,7 +28,7 @@ public class CavaleiroDoSaber : Player
     {
         if (context.performed)
         {
-            Debug.Log("Bloqueando com a espada");
+            Debug.Log("Bloqueando com o 3.14");
         }
         
     }
@@ -43,6 +40,4 @@ public class CavaleiroDoSaber : Player
             TakeDamage(20);
         }
     }
-
-
 }
