@@ -10,23 +10,20 @@
 - `*` - Elemento opcional.
 
 ## Classes
-- [ ] `5*` **(Mascote)Mestre das Transformações:** Especializado em magia de metamorfose, esse personagem pode se transformar em diferentes animais estudados na biologia da fauna.
 
-- [ ] `2` **(Calculadora Humana)Guerreiro Matemático:** Utiliza a lógica e a matemática como armas, deencadeando ataques baseados em equações e padrões numéricos.
+- [ ] `2` **Guerreiro Matemático:** Utiliza a lógica e a matemática como armas, desencadeando ataques baseados em equações e padrões numéricos.
 
-- [ ] `3` **(Deliquente)Ladino das Sombras:** Habilidoso em furtividade e trapaça, esse personagem pode criar ilusões, se esconder nas sombras.(tecnicas adquiridas por anos cabulando aula)
+- [ ] `3` **Ladino das Sombras:** Habilidoso em furtividade e trapaça, esse personagem pode criar ilusões, se esconder nas sombras.
 
-- [ ] `2` **(Assistente da Bibliotecaria)Cavaleiro do Saber:** Um defensor do conhecimento, esse personagem utiliza um livro como escudo e uma espada que canaliza o poder das ideias.
+- [ ] `2` **Cavaleiro do Saber:** Um defensor do conhecimento, esse personagem utiliza um livro como escudo e uma espada que canaliza o poder das ideias.
 
-- [ ] `3` **(Atrapalhado da Aula Prática)Cientista Alquímico:** Mistura ingredientes e reações químicas para criar poções e explosivos.
-
-- [ ] `5*` **(Desenhista)Desenhista Invocador:** Com seus conhecimentos em animais e seres vivos, pode usar magia de invocação pra conjurar criaturas para combater os inimigos.
+- [ ] `3` **Cientista Alquímico:** Mistura ingredientes e reações químicas para criar poções e explosivos.
 
 
 ## Masmorras
 - [ ] `3` **Biblioteca Proibida:** Uma masmorra cheia de livros mágicos e quebra-cabeças literários, guardada por nerd goblins e golens de tinta.
       
-- [ ] `4` **Laboratório Alquímico:** Uma masmorra com poções explosivas, criaturas mutantes e enigmas científicos, protegidos por monstros alquímicos.
+- [ ] `4*` **Laboratório Alquímico:** Uma masmorra com poções explosivas, criaturas mutantes e enigmas científicos, protegidos por monstros alquímicos.
       
 - [ ] `2` **Prédio Abandonado:** Local aonde ficavam os Bully Orcs quando ainda eram pessoas comuns, ouvi dizer que lá tem criaturas da pesada.
 
