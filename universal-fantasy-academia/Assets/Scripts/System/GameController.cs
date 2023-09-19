@@ -6,16 +6,32 @@ public class GameController : MonoBehaviour
 {
     public int Life = 3, Xp = 0;
 
+    public Player player;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public void SaveGame()
+    {  
+        if (player != null)
+        {
+            SaveSystem.SavePlayer(player);
+
+        }
+        else
+        {
+            Debug.LogError("Player not found");
+            throw new System.Exception("Player not found");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void LoadScene(string sceneName)
     {
-        
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+
 }

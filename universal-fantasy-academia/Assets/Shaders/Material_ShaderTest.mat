@@ -52,7 +52,7 @@ Material:
     - _Intensity: 0.36
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Velocity: 0.5
+    - _Velocity: 0.26
     m_Colors:
     - _Color: {r: 113.44314, g: 3.5137255, b: 3.5137255, a: 0}
   m_BuildTextureStacks: []
