@@ -12,16 +12,15 @@ public class GuerreiroMatematico : Player
     // private string attackBoolAnimator; 
     // //private bool isAttacking;
 
-
     public override void Attack(InputAction.CallbackContext context)
     {
         if(context.performed)
         {            
             Debug.Log("Atacando com o 3.14");
             base.PlayAttackAnimation();
-            
+
         }
-        
+
     }
 
     public override void Block(InputAction.CallbackContext context)
@@ -35,9 +34,9 @@ public class GuerreiroMatematico : Player
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Bomb"))
+        if(other.CompareTag("Fantasma"))
         {
-            TakeDamage(20);
+            TakeDamage(5);
         }
     }
 }

@@ -36,9 +36,9 @@ public class CientistaAlquimico : Player
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Bomb"))
+        if(other.CompareTag("Fantasma"))
         {
-            TakeDamage(20);
+            TakeDamage(5);
         }
     }
 }

@@ -17,6 +17,7 @@ public abstract class Player : MonoBehaviour
     private Vector2 moveInput;
 
     public InteractSensor interactSensor;
+    public ShotController shot;
 
     [NonSerialized]
     public Transform respawn;
@@ -43,6 +44,8 @@ public abstract class Player : MonoBehaviour
 
     void Start()
     {
+//        Cursor.lockState = CursorLockMode.Locked;
+
         PlayerData playerData = SaveSystem.LoadPlayer();
         if(playerData != null)
         {

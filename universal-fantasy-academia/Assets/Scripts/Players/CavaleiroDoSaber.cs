@@ -14,13 +14,14 @@ public class CavaleiroDoSaber : Player
     // private string attackBoolAnimator; 
     //private bool isAttacking;
 
-
     public override void Attack(InputAction.CallbackContext context)
     {
-        if(context.performed)
-        {            
+        if(context.performed && Time.time > shot.nextFire)
+        {
+            shot.nextFire = Time.time + shot.fireRate;
             Debug.Log("Atacando com a espada");
             // animatorSword.SetTrigger(attackBoolAnimator);
+            shot.Shooter();
             base.PlayAttackAnimation();
             
         }
@@ -38,9 +39,9 @@ public class CavaleiroDoSaber : Player
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Bomb"))
+        if(other.CompareTag("Fantasma"))
         {
-            TakeDamage(20);
+            TakeDamage(5);
         }
     }
 

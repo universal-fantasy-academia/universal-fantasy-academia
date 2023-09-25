@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.InputSystem;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -30,6 +31,7 @@ public class UiController : MonoBehaviour
     
     void Start()
     {
+
         if (saveConfirmationMessage)
         {
             saveConfirmationTextMeshPro = saveConfirmationMessage.GetComponentInChildren<TextMeshProUGUI>();
@@ -63,6 +65,27 @@ public class UiController : MonoBehaviour
     }
 
     #region Button Actions
+
+//    public void StartInput(InputAction.CallbackContext context)
+//    {
+//        if(context.performed)
+//        {
+//            if (InventoryPanel.activeSelf)
+//            {
+//                movPlayer.GetComponent<PlayerInput>().enabled = true;
+//                camera.SetActive(true);
+//                InventoryPanel.SetActive(false);
+//
+//            }
+//            else
+//            {
+//                movPlayer.GetComponent<PlayerInput>().enabled = false;
+//                camera.SetActive(false);
+//                InventoryPanel.SetActive(true);
+//            }
+//        }
+//    }
+
 
     public void OpenInventory()
     {
