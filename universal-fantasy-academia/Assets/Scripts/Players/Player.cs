@@ -38,6 +38,8 @@ public abstract class Player : MonoBehaviour
     private Animator animator;
     private string attackBoolAnimator;
 
+    private  PlayerData playerData = null;
+
 
     private string PLAYER_PREFS_PLAYER_SELECTED = "PlayerSelected";
 
@@ -46,10 +48,14 @@ public abstract class Player : MonoBehaviour
     {
 //        Cursor.lockState = CursorLockMode.Locked;
 
-        PlayerData playerData = SaveSystem.LoadPlayer();
+        playerData = SaveSystem.LoadPlayer();
         if(playerData != null)
         {
+            CharacterController controller = transform.GetComponent<CharacterController>();
+
+            controller.enabled = false;
             SetPlayerData(playerData);
+            controller.enabled = true;
         }
 
         // int playerId = PlayerPrefs.GetInt(PLAYER_PREFS_PLAYER_SELECTED, 0);
@@ -156,7 +162,7 @@ public abstract class Player : MonoBehaviour
     }
 
 
-    private void SetPlayerData(PlayerData playerData)
+    public void SetPlayerData(PlayerData playerData)
     {
         ChangeXP(playerData.xp);
         ChangeHp(playerData.hp);
@@ -166,8 +172,10 @@ public abstract class Player : MonoBehaviour
         gravityValue = playerData.gravityValue;
         rotation = playerData.rotation;
 
+        Debug.Log(playerData.position[0] + " " + playerData.position[1] + " " + playerData.position[2]);
+
         transform.position = new Vector3(playerData.position[0], playerData.position[1], playerData.position[2]);
-        transform.rotation = new Quaternion(playerData.rotationPlayer[0], playerData.rotationPlayer[1], playerData.rotationPlayer[2], 0);
+        transform.rotation = Quaternion.Euler(playerData.rotationPlayer[0], playerData.rotationPlayer[1], playerData.rotationPlayer[2]);
 
         // cameraTransform.position = new Vector3(playerData.positionCamera[0], playerData.positionCamera[1], playerData.positionCamera[2]);
         // cameraTransform.rotation = new Quaternion(playerData.rotationCamera[0], playerData.rotationCamera[1], playerData.rotationCamera[2], 0);
@@ -287,6 +295,9 @@ public abstract class Player : MonoBehaviour
 
     public virtual void Respawn()
     {
+
+        CharacterController controller = transform.GetComponent<CharacterController>();
+        controller.enabled = false;
         Debug.Log(respawn.position);
 
         //coin -= coin * 0.10f;
@@ -294,6 +305,8 @@ public abstract class Player : MonoBehaviour
         playerTransform.position = respawn.position;
         playerTransform.forward = respawn.forward;
         Debug.Log("Respawnando - " + playerTransform.position);
+
+        controller.enabled = true;
     }
 
     public void ChangeHp(int hp)

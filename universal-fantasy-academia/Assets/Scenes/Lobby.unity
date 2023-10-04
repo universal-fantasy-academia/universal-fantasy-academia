@@ -10850,6 +10850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Item: {fileID: 0}
+  Id: 
 --- !u!1 &929482770
 GameObject:
   m_ObjectHideFlags: 0
@@ -15651,6 +15652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Life: 3
   Xp: 0
+  destroyedObjectsIds: []
   player: {fileID: 942893003}
 --- !u!114 &1301871400
 MonoBehaviour:

@@ -33,9 +33,9 @@ public class PlayerData
         position[2] = player.playerTransform.position.z;
 
         rotationPlayer = new float[3];
-        rotationPlayer[0] = player.playerTransform.rotation.x;
-        rotationPlayer[1] = player.playerTransform.rotation.y;
-        rotationPlayer[2] = player.playerTransform.rotation.z;
+        rotationPlayer[0] = player.playerTransform.rotation.eulerAngles.x;
+        rotationPlayer[1] = player.playerTransform.rotation.eulerAngles.y;
+        rotationPlayer[2] = player.playerTransform.rotation.eulerAngles.z;
 
         positionCamera = new float[3];
         positionCamera[0] = player.cameraTransform.position.x;
@@ -43,9 +43,9 @@ public class PlayerData
         positionCamera[2] = player.cameraTransform.position.z;
 
         rotationCamera = new float[3];
-        rotationCamera[0] = player.cameraTransform.rotation.x;
-        rotationCamera[1] = player.cameraTransform.rotation.y;
-        rotationCamera[2] = player.cameraTransform.rotation.z;
+        rotationCamera[0] = player.cameraTransform.rotation.eulerAngles.x;
+        rotationCamera[1] = player.cameraTransform.rotation.eulerAngles.y;
+        rotationCamera[2] = player.cameraTransform.rotation.eulerAngles.z;
         
         try
         {

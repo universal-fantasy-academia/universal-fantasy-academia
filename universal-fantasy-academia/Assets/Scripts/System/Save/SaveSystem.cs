@@ -6,12 +6,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem 
 {
-    public static string path = Application.persistentDataPath + "/player.ufa";
+    public static string playerPath = Application.persistentDataPath + "/player.ufa";
+    public static string scenePath = Application.persistentDataPath + "/scene.ufa";
     public static void SavePlayer(Player player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
 
-        string path = SaveSystem.path;
+        string path = SaveSystem.playerPath;
         FileStream stream = new FileStream(path, FileMode.Create);
 
         PlayerData data = new PlayerData(player);
@@ -22,7 +23,7 @@ public static class SaveSystem
 
     public static PlayerData LoadPlayer()
     {
-        string path = SaveSystem.path;
+        string path = SaveSystem.playerPath;
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -36,6 +37,43 @@ public static class SaveSystem
         else
         {
             Debug.LogError("Save file not found in " + path);
+            return null;
+        }
+    }
+
+
+    public static void SaveScene()
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        
+        GameController gameController = GameObject.FindObjectOfType<GameController>();
+        if (gameController != null)
+        {
+            FileStream stream = new FileStream(scenePath, FileMode.Create);
+
+            string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+            SceneData data = new SceneData(sceneName, gameController.destroyedObjectsIds);
+
+            formatter.Serialize(stream, data);
+            stream.Close();
+        }
+    }
+
+    public static SceneData LoadScene()
+    {
+        if (File.Exists(scenePath))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(scenePath, FileMode.Open);
+
+            SceneData data = formatter.Deserialize(stream) as SceneData;
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogError("Save file not found in " + scenePath);
             return null;
         }
     }
