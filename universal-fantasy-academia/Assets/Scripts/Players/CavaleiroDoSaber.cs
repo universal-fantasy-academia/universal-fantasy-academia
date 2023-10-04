@@ -16,16 +16,12 @@ public class CavaleiroDoSaber : Player
 
     public override void Attack(InputAction.CallbackContext context)
     {
-        if(context.performed && Time.time > shot.nextFire)
+        if(context.performed)
         {
-            shot.nextFire = Time.time + shot.fireRate;
             Debug.Log("Atacando com a espada");
             // animatorSword.SetTrigger(attackBoolAnimator);
-            shot.Shooter();
             base.PlayAttackAnimation();
-            
         }
-        
     }
 
     public override void Block(InputAction.CallbackContext context)

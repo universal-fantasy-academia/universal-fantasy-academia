@@ -16,11 +16,12 @@ public class CientistaAlquimico : Player
 
     public override void Attack(InputAction.CallbackContext context)
     {
-        if(context.performed)
-        {            
+        if(context.performed && Time.time > shot.nextFire)
+        {
+            shot.nextFire = Time.time + shot.fireRate;
+            shot.Shooter();
             Debug.Log("Atacando com a pedra filosofal");
             base.PlayAttackAnimation();
-            
         }
         
     }
