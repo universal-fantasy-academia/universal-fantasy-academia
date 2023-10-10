@@ -46,7 +46,7 @@ public class BombTest : MonoBehaviour
             DeathGhost();
         }
 
-        if(other.CompareTag("Shot"))
+        if(other.CompareTag("Weapon"))
         {
             Destroy(other);
             life--;

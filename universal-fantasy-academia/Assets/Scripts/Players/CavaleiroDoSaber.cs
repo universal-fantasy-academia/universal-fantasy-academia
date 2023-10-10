@@ -13,7 +13,7 @@ public class CavaleiroDoSaber : PlayerClasses
         if(context.performed)
         {
             Debug.Log("Atacando com a espada");
-            // animatorSword.SetTrigger(attackBoolAnimator);
+            //animatorSword.SetTrigger(attackBoolAnimator);
             //base.PlayAttackAnimation();
         }
     }

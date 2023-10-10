@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public abstract class Player : MonoBehaviour
-{   
+{
     [SerializeField]
     public float speed, runSpeed, jumpHeight, gravityValue, rotation;
     [SerializeField]
@@ -82,7 +82,7 @@ public abstract class Player : MonoBehaviour
         // }
 
         UpdateAnimator();
-        
+
     }
 
     void Awake()
@@ -157,7 +157,7 @@ public abstract class Player : MonoBehaviour
 
 
         if(Input.GetKeyDown(KeyCode.F1))
-        {    
+        {
             Respawn();
         }
 

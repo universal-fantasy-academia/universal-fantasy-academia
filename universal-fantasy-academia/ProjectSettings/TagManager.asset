@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Interactable
   - Fantasma
-  - Shot
+  - Weapon
   layers:
   - Default
   - TransparentFX

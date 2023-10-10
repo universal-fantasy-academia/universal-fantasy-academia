@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 4885712665823009039}
   - component: {fileID: 4885712665823009038}
   - component: {fileID: 1859496762096128155}
+  - component: {fileID: 5360361427739398695}
   m_Layer: 0
   m_Name: LadinoDasSombras
   m_TagString: Untagged
@@ -327,6 +328,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98626617638be2a44906abf3bc868b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5360361427739398695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4885712665823009044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa2b67a198f58344abb12319db560ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  hand: {fileID: 0}
 --- !u!1 &4885712666498084490
 GameObject:
   m_ObjectHideFlags: 0
