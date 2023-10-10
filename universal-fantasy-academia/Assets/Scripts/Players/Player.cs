@@ -23,6 +23,7 @@ public abstract class Player : MonoBehaviour
     public Transform respawn;
 
     public GameObject playerSlot;
+    public PlayerClasses selectedPlayerClass;
     public PlayerScriptableObject playerSelected;
     public PlayerScriptableObject cavaleiroDoSaber;
     public PlayerScriptableObject cientistaAlquimico;
@@ -56,6 +57,8 @@ public abstract class Player : MonoBehaviour
             controller.enabled = false;
             SetPlayerData(playerData);
             controller.enabled = true;
+
+            selectedPlayerClass = playerSlot.GetComponentInChildren<PlayerClasses>();
         }
 
         // int playerId = PlayerPrefs.GetInt(PLAYER_PREFS_PLAYER_SELECTED, 0);
@@ -232,6 +235,8 @@ public abstract class Player : MonoBehaviour
         //PlayerPrefs.SetInt("Player", Array.IndexOf(new PlayerScriptableObject[] { cavaleiroDoSaber, cientistaAlquimico, guerreiroMatematico, ladinoDasSombas }, player.GetComponent<PlayerScriptableObject>()));
         PlayerPrefs.SetInt(PLAYER_PREFS_PLAYER_SELECTED, (int)player.playerType);
         playerSelected = player;
+        
+        selectedPlayerClass = playerSlot.GetComponentInChildren<PlayerClasses>();
     }
     
     void StopRun()
@@ -274,9 +279,9 @@ public abstract class Player : MonoBehaviour
         }
     }
 
-    public abstract void Attack(InputAction.CallbackContext context);
+    // public abstract void Attack(InputAction.CallbackContext context);
 
-    public abstract void Block(InputAction.CallbackContext context);
+    // public abstract void Block(InputAction.CallbackContext context);
 
 
     public void Die()

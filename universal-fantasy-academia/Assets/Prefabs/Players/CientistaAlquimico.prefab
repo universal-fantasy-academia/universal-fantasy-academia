@@ -333,6 +333,7 @@ GameObject:
   - component: {fileID: 4885712665823009045}
   - component: {fileID: 4885712665823009039}
   - component: {fileID: 4885712665823009038}
+  - component: {fileID: 4868144966081532046}
   m_Layer: 0
   m_Name: CientistaAlquimico
   m_TagString: Untagged
@@ -409,6 +410,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4868144966081532046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4885712665823009044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6079d976d3289ef42b78c74d0c99e512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4885712666498084490
 GameObject:
   m_ObjectHideFlags: 0

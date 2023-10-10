@@ -5,22 +5,16 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CavaleiroDoSaber : Player
+public class CavaleiroDoSaber : PlayerClasses
 {   
-    // [SerializeField]
-    // private Animator animatorSword;
-    
-    // [SerializeField]
-    // private string attackBoolAnimator; 
-    //private bool isAttacking;
 
-    public override void Attack(InputAction.CallbackContext context)
+    public override void Attack(InputAction.CallbackContext context, ShotController shot)
     {
         if(context.performed)
         {
             Debug.Log("Atacando com a espada");
             // animatorSword.SetTrigger(attackBoolAnimator);
-            base.PlayAttackAnimation();
+            //base.PlayAttackAnimation();
         }
     }
 
@@ -31,14 +25,6 @@ public class CavaleiroDoSaber : Player
             Debug.Log("Bloqueando com a espada");
         }
         
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Fantasma"))
-        {
-            TakeDamage(5);
-        }
     }
 
 

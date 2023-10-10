@@ -3,22 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class LadinoDasSombas : Player
+public class LadinoDasSombas : PlayerClasses
 {
-    // [SerializeField]
-    // private Animator animatorSword;
-    
-    // [SerializeField]
-    // private string attackBoolAnimator; 
-    // //private bool isAttacking;
-
-
-    public override void Attack(InputAction.CallbackContext context)
+    public override void Attack(InputAction.CallbackContext context, ShotController shot)
     {
         if(context.performed)
         {            
             Debug.Log("Atacando na calada");
-            base.PlayAttackAnimation();
+            //base.PlayAttackAnimation();
             
         }
         
@@ -31,13 +23,5 @@ public class LadinoDasSombas : Player
             Debug.Log("Bloqueando na calada");
         }
         
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Fantasma"))
-        {
-            TakeDamage(5);
-        }
     }
 }
