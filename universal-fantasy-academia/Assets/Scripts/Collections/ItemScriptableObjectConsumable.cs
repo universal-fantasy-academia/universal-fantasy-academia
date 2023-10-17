@@ -16,7 +16,7 @@ public class ItemScriptableObjectConsumable : ItemScriptableObject
 
     public ConsumableType consumableType;
 
-    public override void Use(Player playerScript)
+    public override bool Use(Player playerScript)
     {
         if (consumableType == ConsumableType.Health)
         {
@@ -25,11 +25,12 @@ public class ItemScriptableObjectConsumable : ItemScriptableObject
         else if (consumableType == ConsumableType.Experience)
         {
             playerScript.LevelUp(Value);
-        }
+    }
         else
         {
             Debug.Log("Consumable type not implemented");
         }
 
+        return true;
     }
 }

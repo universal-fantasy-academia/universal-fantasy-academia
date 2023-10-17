@@ -11,15 +11,16 @@ public class ItemScriptableObjectWeapon : ItemScriptableObject
         Axe,
         Bow,
         Staff,
-        Wand,
-        Shield
+        Wand
     }
+
 
     public WeaponType weaponType;
 
-    public override void Use(Player playerScript)
+    public override bool Use(Player playerScript)
     {
         Debug.Log("Weapon Item");
+        return true;
     }
 
 }

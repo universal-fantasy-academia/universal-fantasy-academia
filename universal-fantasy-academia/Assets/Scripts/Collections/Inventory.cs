@@ -89,15 +89,16 @@ public class Inventory : MonoBehaviour
 
     public void UseItem(ItemScriptableObject item)
     {
-        item.RemoveQuantity();
-        if (item.quantity <= 0)
+        if (playerScript != null && item.Use(playerScript))
         {
-            RemoveItem(item);
+            item.RemoveQuantity();
+            if (item.quantity <= 0)
+            {
+                RemoveItem(item);
+            }
+            item.InventorySlot.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.quantity.ToString();
         }
-        item.InventorySlot.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.quantity.ToString();
 
-        if (playerScript != null)
-            item.Use(playerScript);
     }
 
 

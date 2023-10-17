@@ -16,11 +16,13 @@ public class ItemScriptableObjectWearable : ItemScriptableObject
         Shield
     }
 
+
     public WearableType wearableType;
 
-    public override void Use(Player playerScript)
+    public override bool Use(Player playerScript)
     {
         Debug.Log("Wearable Item");
+        return true;
     }
     
 }

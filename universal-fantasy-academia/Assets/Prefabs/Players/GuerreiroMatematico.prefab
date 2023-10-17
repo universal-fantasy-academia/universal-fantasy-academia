@@ -467,7 +467,6 @@ GameObject:
   - component: {fileID: 4885712665823009039}
   - component: {fileID: 4885712665823009038}
   - component: {fileID: 5071726345292160029}
-  - component: {fileID: 6566207020857600689}
   m_Layer: 0
   m_Name: GuerreiroMatematico
   m_TagString: Untagged
@@ -554,18 +553,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcf95ec3f4ec4d840a535908d398c2d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6566207020857600689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4885712665823009044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fa2b67a198f58344abb12319db560ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}

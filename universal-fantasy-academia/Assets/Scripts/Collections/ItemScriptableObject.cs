@@ -18,7 +18,7 @@ public abstract class ItemScriptableObject : ScriptableObject
     public int quantity = 0;
     public int maxQuantity;
 
-    public abstract void Use(Player playerScript);
+    public abstract bool Use(Player playerScript);
 
     public void Collect()
     {

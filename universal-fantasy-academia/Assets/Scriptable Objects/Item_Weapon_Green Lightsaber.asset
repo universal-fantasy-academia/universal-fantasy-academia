@@ -17,4 +17,4 @@ MonoBehaviour:
   Description: Item Description
   Value: 10
   maxQuantity: 1
-  weaponType: 0
+  weaponType: 1
