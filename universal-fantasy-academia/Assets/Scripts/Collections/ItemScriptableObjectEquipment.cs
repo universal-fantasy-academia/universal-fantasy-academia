@@ -26,7 +26,6 @@ public class ItemScriptableObjectEquipment : ItemScriptableObject
 
     public override bool Use(Player playerScript)
     {
-
         return Equipaments.equipaments.ChangeEquip(this);
     }
 

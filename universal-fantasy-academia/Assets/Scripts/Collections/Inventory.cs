@@ -98,7 +98,6 @@ public class Inventory : MonoBehaviour
             }
             item.InventorySlot.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.quantity.ToString();
         }
-
     }
 
 
