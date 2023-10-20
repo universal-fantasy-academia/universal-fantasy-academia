@@ -6,6 +6,8 @@ public class Equipaments : MonoBehaviour
 {
     //[SerializeField] private Image weapon, accessory, armor;
     [SerializeField] private GameObject weapon, accessory, armor;
+    private Player player;
+
     public static Equipaments equipaments;
 
     void Awake()
@@ -21,9 +23,15 @@ public class Equipaments : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        player = GameObject.FindObjectOfType<Player>();
+    }
+
     public bool ChangeEquip(ItemScriptableObjectEquipment itemEquipment)
     {
-        if (itemEquipment.classRestriction != ClassRestriction.CavaleiroDoSaber) // pega  classe atual(CavaleirodS)
+
+        if (itemEquipment.classRestriction != player.playerSelected.playerType) // pega  classe atual(CavaleirodS)
         {
             Debug.Log("Item inválido");
             return false;

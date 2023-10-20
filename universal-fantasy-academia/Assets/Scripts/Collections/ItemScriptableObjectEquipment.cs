@@ -1,13 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum ClassRestriction
-{
-    CavaleiroDoSaber,
-    CientistaAlquimico,
-    GuerreiroMatematico,
-    LadinoDasSombras
-}
 
 public enum EquipmentType
 {
@@ -21,7 +14,7 @@ public class ItemScriptableObjectEquipment : ItemScriptableObject
 {
 
 
-    public ClassRestriction classRestriction;
+    public PlayerClass classRestriction;
     public EquipmentType equipmentType;
 
     public override bool Use(Player playerScript)

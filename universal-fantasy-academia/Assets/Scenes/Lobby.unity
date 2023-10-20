@@ -8284,7 +8284,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599971504}
-  m_LocalRotation: {x: 0.24512291, y: 0.000000028893115, z: -0.0000000073052324, w: 0.969492}
+  m_LocalRotation: {x: 0.24512288, y: -0.000000014446562, z: 0.0000000036526164, w: 0.969492}
   m_LocalPosition: {x: 0, y: 0.0000009536743, z: -0.0000019073486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9706,7 +9706,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712773225}
-  m_LocalRotation: {x: 0.22247069, y: 0.00000001677518, z: -0.0000000038279158, w: 0.9749394}
+  m_LocalRotation: {x: 0.22247069, y: -0.00000001677518, z: 0.0000000038279158, w: 0.9749394}
   m_LocalPosition: {x: 0.41546285, y: 2.3346763, z: -4.569871}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21490,7 +21490,8 @@ MonoBehaviour:
   OptionsPanel: {fileID: 1559302197}
   saveConfirmationMessage: {fileID: 422241295}
   audioController: {fileID: 563055848}
-  InventoryPanel: {fileID: 1262224326}
+  inventoryPanel: {fileID: 1262224326}
+  equimentPanel: {fileID: 48769277}
   InventoryContent: {fileID: 1287405848}
   PrefabItem: {fileID: 0}
   movPlayer: {fileID: 942892999}
@@ -25704,7 +25705,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088686259}
-  m_LocalRotation: {x: 0.22247066, y: 0.000000008387589, z: -0.000000001913957, w: 0.9749394}
+  m_LocalRotation: {x: 0.22247066, y: -0.000000008387591, z: 0.0000000019139574, w: 0.9749394}
   m_LocalPosition: {x: 0, y: 0.00000047683716, z: -0.0000009536743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

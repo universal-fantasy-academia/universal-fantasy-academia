@@ -16,8 +16,9 @@ public class UiController : MonoBehaviour
 
 
     [Header("InventoryHud")]
-    public GameObject InventoryPanel, InventoryContent, PrefabItem;
+    public GameObject inventoryPanel, equimentPanel, InventoryContent, PrefabItem;
     public GameObject movPlayer, camera;
+
 
     [Header("XP and HP Hud")]
     public TextMeshProUGUI XP;
@@ -40,9 +41,10 @@ public class UiController : MonoBehaviour
 
     public void Awake()
     {
-        if (InventoryPanel)
+        if (inventoryPanel && equimentPanel)
         {
-            InventoryPanel.SetActive(false);
+            inventoryPanel.SetActive(false);
+            equimentPanel.SetActive(false);
         }
 
         if (OptionsPanel)
@@ -89,17 +91,19 @@ public class UiController : MonoBehaviour
 
     public void OpenInventory()
     {
-        if (InventoryPanel.activeSelf)
+        if (inventoryPanel.activeSelf)
         {
             movPlayer.GetComponent<PlayerInput>().enabled = true;
             camera.SetActive(true);
-            InventoryPanel.SetActive(false);
+            inventoryPanel.SetActive(false);
+            equimentPanel.SetActive(false);
         }
         else
         {
             movPlayer.GetComponent<PlayerInput>().enabled = false;
             camera.SetActive(false);
-            InventoryPanel.SetActive(true);
+            inventoryPanel.SetActive(true);
+            equimentPanel.SetActive(true);
         }
     }
 
