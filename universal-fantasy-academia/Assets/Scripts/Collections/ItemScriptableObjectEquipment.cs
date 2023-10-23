@@ -13,7 +13,7 @@ public enum EquipmentType
 public class ItemScriptableObjectEquipment : ItemScriptableObject
 {
 
-
+    public GameObject prefeb;
     public PlayerClass classRestriction;
     public EquipmentType equipmentType;
 

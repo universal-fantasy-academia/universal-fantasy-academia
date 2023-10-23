@@ -15,12 +15,14 @@ public abstract class Player : MonoBehaviour
     private Vector3 playerVelocity;
     private bool playerIsGrounded;
     private Vector2 moveInput;
+    public GameObject Cubo;
+
 
     public InteractSensor interactSensor;
     public ShotController shot;
 
     [NonSerialized]
-    public Transform respawn;
+    public Transform respawn, weaponReference;
 
     public GameObject playerSlot;
     public PlayerClasses selectedPlayerClass;
@@ -47,8 +49,9 @@ public abstract class Player : MonoBehaviour
 
     void Start()
     {
-//        Cursor.lockState = CursorLockMode.Locked;
-
+        weaponReference = GameObject.FindGameObjectWithTag("Weapon").transform;
+        //Cursor.lockState = CursorLockMode.Locked;
+        Instantiate(Cubo, weaponReference, false);
         playerData = SaveSystem.LoadPlayer();
         if(playerData != null)
         {

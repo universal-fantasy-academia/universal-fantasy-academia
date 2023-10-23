@@ -47,6 +47,7 @@ public class Equipaments : MonoBehaviour
             case EquipmentType.Weapon:
                 weaponImg.overrideSprite = itemEquipment.Icon;
                 weaponImg.enabled = true;
+                //Instantiate(itemEquipment.prefeb, );
                 weapon.GetComponent<Button>().onClick.AddListener(() => ChangeUnquip(itemEquipment));
                 break;
 
