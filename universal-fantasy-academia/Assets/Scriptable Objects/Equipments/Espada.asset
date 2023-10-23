@@ -19,5 +19,6 @@ MonoBehaviour:
 '
   Value: 0
   maxQuantity: 1
+  prefeb: {fileID: 214213295423535549, guid: 772965bab62d5e741b8a7cfa042b6bab, type: 3}
   classRestriction: 0
   equipmentType: 0

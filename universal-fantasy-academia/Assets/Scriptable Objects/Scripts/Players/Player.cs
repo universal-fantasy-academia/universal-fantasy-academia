@@ -22,7 +22,7 @@ public abstract class Player : MonoBehaviour
     public ShotController shot;
 
     [NonSerialized]
-    public Transform respawn, weaponReference;
+    public Transform respawn;
 
     public GameObject playerSlot;
     public PlayerClasses selectedPlayerClass;
@@ -49,9 +49,8 @@ public abstract class Player : MonoBehaviour
 
     void Start()
     {
-        weaponReference = GameObject.FindGameObjectWithTag("Weapon").transform;
+
         //Cursor.lockState = CursorLockMode.Locked;
-        Instantiate(Cubo, weaponReference, false);
         playerData = SaveSystem.LoadPlayer();
         if(playerData != null)
         {
