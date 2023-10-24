@@ -40,11 +40,11 @@ public class BombTest : MonoBehaviour
     }
 
 
-    void Damage(Collider other, bool isDestroy = false)
+    void Damage(GameObject other, bool isDestroy = false)
     {   
         if (isDestroy)
         {
-            Destroy(other.gameObject);
+            Destroy(other);
         }
 
         Debug.Log("Toma otário!!!");
@@ -64,7 +64,7 @@ public class BombTest : MonoBehaviour
 
         if(other.CompareTag("Weapon"))
         {
-            Damage(other);
+            Damage(gameObject);
         }
     }
 
@@ -72,7 +72,7 @@ public class BombTest : MonoBehaviour
     {
         if (other.CompareTag("Weapon"))
         {
-            Damage(other);
+            Damage(gameObject);
         }
     }
 

@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 19744994}
   - component: {fileID: 19744996}
   - component: {fileID: 19744995}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 22007272}
   - component: {fileID: 22007271}
   - component: {fileID: 22007270}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bomb (9)
   m_TagString: Fantasma
   m_Icon: {fileID: 0}
@@ -1513,7 +1513,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 80153495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2173,7 +2173,7 @@ GameObject:
   - component: {fileID: 156136915}
   - component: {fileID: 156136917}
   - component: {fileID: 156136916}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2353,7 +2353,7 @@ GameObject:
   - component: {fileID: 160358969}
   - component: {fileID: 160358971}
   - component: {fileID: 160358970}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2592,103 +2592,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184024744}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &184822296
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 6d95c2d7e2e88314493ea169ac43174a, type: 3}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6d95c2d7e2e88314493ea169ac43174a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.43
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6d95c2d7e2e88314493ea169ac43174a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6d95c2d7e2e88314493ea169ac43174a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 25.02
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6d95c2d7e2e88314493ea169ac43174a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6d95c2d7e2e88314493ea169ac43174a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6d95c2d7e2e88314493ea169ac43174a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6d95c2d7e2e88314493ea169ac43174a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6d95c2d7e2e88314493ea169ac43174a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6d95c2d7e2e88314493ea169ac43174a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6d95c2d7e2e88314493ea169ac43174a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 6d95c2d7e2e88314493ea169ac43174a, type: 3}
-      propertyPath: m_Name
-      value: Chest
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6d95c2d7e2e88314493ea169ac43174a, type: 3}
---- !u!1 &184822297 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6d95c2d7e2e88314493ea169ac43174a, type: 3}
-  m_PrefabInstance: {fileID: 184822296}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &184822298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184822297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0c5df79821f59d428190087967a4e7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInRange: 0
-  interactMessage: Coletar
-  isInteractable: 1
-  interactUIObject: {fileID: 712073527}
-  interactMessageTextObject: {fileID: 543367219}
-  interactMessageIconObject: {fileID: 0}
-  interactMessageIcon: {fileID: 0}
-  Item: {fileID: 11400000, guid: 98a7edaf9ef58d94c80334512c422c21, type: 2}
-  prefab: {fileID: 5242919333701221527, guid: 2d7e2b6cc541ccc43a936186156f39d8, type: 3}
-  quantity: 1
---- !u!65 &184822299
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184822297}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.602588, y: 1, z: 1.5696973}
-  m_Center: {x: -0.77969766, y: 0, z: -0.011649221}
 --- !u!1 &186545190 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5242919333701221527, guid: 2d7e2b6cc541ccc43a936186156f39d8, type: 3}
@@ -2894,12 +2797,24 @@ PrefabInstance:
       value: Weapon
       objectReference: {fileID: 0}
     - target: {fileID: 4885712665148352617, guid: a1617258557544c4491171cc5f17fef6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885712665148352617, guid: a1617258557544c4491171cc5f17fef6, type: 3}
       propertyPath: m_TagString
       value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885712665374440265, guid: a1617258557544c4491171cc5f17fef6, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4885712665823009044, guid: a1617258557544c4491171cc5f17fef6, type: 3}
       propertyPath: m_Name
       value: CavaleiroDoSaber
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885712665823009044, guid: a1617258557544c4491171cc5f17fef6, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4885712665823009044, guid: a1617258557544c4491171cc5f17fef6, type: 3}
       propertyPath: m_IsActive
@@ -2949,6 +2864,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4885712666498084490, guid: a1617258557544c4491171cc5f17fef6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885712666892094646, guid: a1617258557544c4491171cc5f17fef6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4885712666892094647, guid: a1617258557544c4491171cc5f17fef6, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.95256037
@@ -2976,6 +2899,10 @@ PrefabInstance:
     - target: {fileID: 4885712666892094647, guid: a1617258557544c4491171cc5f17fef6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 35.438
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885712666979465566, guid: a1617258557544c4491171cc5f17fef6, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7719561881688700043, guid: a1617258557544c4491171cc5f17fef6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3117,7 +3044,7 @@ GameObject:
   - component: {fileID: 202229077}
   - component: {fileID: 202229078}
   - component: {fileID: 202229079}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: InteractSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3751,7 +3678,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 287015018}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4121,7 +4048,7 @@ GameObject:
   - component: {fileID: 322421113}
   - component: {fileID: 322421112}
   - component: {fileID: 322421111}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bomb (8)
   m_TagString: Fantasma
   m_Icon: {fileID: 0}
@@ -4333,7 +4260,7 @@ GameObject:
   - component: {fileID: 327584549}
   - component: {fileID: 327584551}
   - component: {fileID: 327584550}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5085,7 +5012,7 @@ GameObject:
   - component: {fileID: 376019172}
   - component: {fileID: 376019174}
   - component: {fileID: 376019173}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5265,7 +5192,7 @@ GameObject:
   - component: {fileID: 384011917}
   - component: {fileID: 384011919}
   - component: {fileID: 384011918}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5864,7 +5791,7 @@ GameObject:
   - component: {fileID: 427188488}
   - component: {fileID: 427188487}
   - component: {fileID: 427188486}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bomb (2)
   m_TagString: Fantasma
   m_Icon: {fileID: 0}
@@ -6076,7 +6003,7 @@ GameObject:
   - component: {fileID: 437336979}
   - component: {fileID: 437336981}
   - component: {fileID: 437336980}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6757,7 +6684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 466835521}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6858,7 +6785,7 @@ GameObject:
   - component: {fileID: 490957869}
   - component: {fileID: 490957868}
   - component: {fileID: 490957867}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bomb (3)
   m_TagString: Fantasma
   m_Icon: {fileID: 0}
@@ -7070,7 +6997,7 @@ GameObject:
   - component: {fileID: 492421705}
   - component: {fileID: 492421707}
   - component: {fileID: 492421706}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7255,7 +7182,7 @@ GameObject:
   - component: {fileID: 502111363}
   - component: {fileID: 502111365}
   - component: {fileID: 502111364}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7336,7 +7263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 508718481}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7988,7 +7915,7 @@ GameObject:
   - component: {fileID: 565001062}
   - component: {fileID: 565001064}
   - component: {fileID: 565001063}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8406,7 +8333,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599971504}
-  m_LocalRotation: {x: 0.24512288, y: -0.000000014446562, z: 0.0000000036526164, w: 0.969492}
+  m_LocalRotation: {x: 0.24512291, y: 0.000000028893115, z: -0.0000000073052324, w: 0.969492}
   m_LocalPosition: {x: 0, y: 0.0000009536743, z: -0.0000019073486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8422,6 +8349,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1966614340}
     m_Modifications:
+    - target: {fileID: 5242919333701221527, guid: 2d7e2b6cc541ccc43a936186156f39d8, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5242919333701221527, guid: 2d7e2b6cc541ccc43a936186156f39d8, type: 3}
       propertyPath: m_Name
       value: Lightsaber (7)
@@ -9935,7 +9866,7 @@ GameObject:
   - component: {fileID: 719696734}
   - component: {fileID: 719696733}
   - component: {fileID: 719696732}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bomb (6)
   m_TagString: Fantasma
   m_Icon: {fileID: 0}
@@ -11621,7 +11552,7 @@ GameObject:
   - component: {fileID: 887810343}
   - component: {fileID: 887810345}
   - component: {fileID: 887810344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11763,7 +11694,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 895305709}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11864,7 +11795,7 @@ GameObject:
   - component: {fileID: 901615458}
   - component: {fileID: 901615460}
   - component: {fileID: 901615459}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13090,7 +13021,7 @@ GameObject:
   - component: {fileID: 976947986}
   - component: {fileID: 976947985}
   - component: {fileID: 976947984}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bomb (1)
   m_TagString: Fantasma
   m_Icon: {fileID: 0}
@@ -13461,7 +13392,7 @@ GameObject:
   - component: {fileID: 981050167}
   - component: {fileID: 981050169}
   - component: {fileID: 981050168}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13877,7 +13808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1018803889}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14703,7 +14634,7 @@ GameObject:
   - component: {fileID: 1075728543}
   - component: {fileID: 1075728545}
   - component: {fileID: 1075728544}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14962,7 +14893,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1099829638}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14998,7 +14929,7 @@ GameObject:
   - component: {fileID: 1103536334}
   - component: {fileID: 1103536336}
   - component: {fileID: 1103536335}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15534,7 +15465,7 @@ GameObject:
   - component: {fileID: 1160543516}
   - component: {fileID: 1160543518}
   - component: {fileID: 1160543517}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15946,7 +15877,7 @@ GameObject:
   - component: {fileID: 1232256106}
   - component: {fileID: 1232256108}
   - component: {fileID: 1232256107}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16427,7 +16358,7 @@ GameObject:
   - component: {fileID: 1251249478}
   - component: {fileID: 1251249480}
   - component: {fileID: 1251249479}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16693,7 +16624,7 @@ GameObject:
   - component: {fileID: 1261247667}
   - component: {fileID: 1261247669}
   - component: {fileID: 1261247668}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16940,7 +16871,7 @@ GameObject:
   - component: {fileID: 1294505552}
   - component: {fileID: 1294505555}
   - component: {fileID: 1294505556}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bomb
   m_TagString: Fantasma
   m_Icon: {fileID: 0}
@@ -17700,7 +17631,7 @@ GameObject:
   - component: {fileID: 1400994937}
   - component: {fileID: 1400994939}
   - component: {fileID: 1400994938}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18966,7 +18897,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1500841999}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19136,7 +19067,7 @@ GameObject:
   - component: {fileID: 1508054874}
   - component: {fileID: 1508054876}
   - component: {fileID: 1508054875}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19636,7 +19567,7 @@ GameObject:
   - component: {fileID: 1535747686}
   - component: {fileID: 1535747688}
   - component: {fileID: 1535747687}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20317,7 +20248,7 @@ GameObject:
   - component: {fileID: 1605315695}
   - component: {fileID: 1605315697}
   - component: {fileID: 1605315696}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20570,7 +20501,7 @@ GameObject:
   - component: {fileID: 1627103682}
   - component: {fileID: 1627103684}
   - component: {fileID: 1627103683}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21791,7 +21722,7 @@ GameObject:
   - component: {fileID: 1730066666}
   - component: {fileID: 1730066668}
   - component: {fileID: 1730066667}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22092,7 +22023,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1757225123}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22737,7 +22668,7 @@ GameObject:
   - component: {fileID: 1842307254}
   - component: {fileID: 1842307256}
   - component: {fileID: 1842307255}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23010,7 +22941,7 @@ GameObject:
   - component: {fileID: 1878671188}
   - component: {fileID: 1878671187}
   - component: {fileID: 1878671186}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bomb (5)
   m_TagString: Fantasma
   m_Icon: {fileID: 0}
@@ -23547,7 +23478,7 @@ GameObject:
   - component: {fileID: 1908239532}
   - component: {fileID: 1908239534}
   - component: {fileID: 1908239533}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23633,7 +23564,7 @@ GameObject:
   - component: {fileID: 1910426647}
   - component: {fileID: 1910426646}
   - component: {fileID: 1910426645}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bomb (4)
   m_TagString: Fantasma
   m_Icon: {fileID: 0}
@@ -25046,7 +24977,7 @@ GameObject:
   - component: {fileID: 2007792995}
   - component: {fileID: 2007792997}
   - component: {fileID: 2007792996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyeL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25516,7 +25447,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2053271273}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26355,7 +26286,7 @@ GameObject:
   - component: {fileID: 2108758967}
   - component: {fileID: 2108758969}
   - component: {fileID: 2108758968}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26646,6 +26577,10 @@ PrefabInstance:
       value: Sword
       objectReference: {fileID: 0}
     - target: {fileID: 214213295423535549, guid: 772965bab62d5e741b8a7cfa042b6bab, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 214213295423535549, guid: 772965bab62d5e741b8a7cfa042b6bab, type: 3}
       propertyPath: m_TagString
       value: Weapon
       objectReference: {fileID: 0}
@@ -26767,7 +26702,7 @@ GameObject:
   - component: {fileID: 2123434338}
   - component: {fileID: 2123434337}
   - component: {fileID: 2123434336}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bomb (7)
   m_TagString: Fantasma
   m_Icon: {fileID: 0}
@@ -26979,7 +26914,7 @@ GameObject:
   - component: {fileID: 2132126920}
   - component: {fileID: 2132126922}
   - component: {fileID: 2132126921}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27272,9 +27207,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 942893002}
     m_Modifications:
+    - target: {fileID: 4885712665148352617, guid: a1617258557544c4491171cc5f17fef6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885712665374440265, guid: a1617258557544c4491171cc5f17fef6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4885712665823009044, guid: a1617258557544c4491171cc5f17fef6, type: 3}
       propertyPath: m_Name
       value: BodyPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885712665823009044, guid: a1617258557544c4491171cc5f17fef6, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4885712665823009044, guid: a1617258557544c4491171cc5f17fef6, type: 3}
       propertyPath: m_IsActive
@@ -27322,6 +27269,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4885712665823009045, guid: a1617258557544c4491171cc5f17fef6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885712666498084490, guid: a1617258557544c4491171cc5f17fef6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885712666892094646, guid: a1617258557544c4491171cc5f17fef6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885712666979465566, guid: a1617258557544c4491171cc5f17fef6, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -27395,3 +27354,125 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 042d11ec11b1b864bb2e44e69150c4e8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d7e2b6cc541ccc43a936186156f39d8, type: 3}
+--- !u!1001 &6087642205980548409
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2820683385963673725, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e14efff16f665fa489009c0238c2b046, type: 2}
+    - target: {fileID: 2978093170857006074, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5031317
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978093170857006074, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.50295824
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978093170857006074, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.4970242
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978093170857006074, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4968486
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978093170857006074, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978093170857006074, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978093170857006074, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048650032580399306, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048650032580399306, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048650032580399306, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048650032580399306, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048650032580399306, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048650032580399306, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048650032580399306, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048650032580399306, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048650032580399306, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048650032580399306, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048650032580399306, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087642206064178979, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 9020685456141422276}
+    - target: {fileID: 6087642206064178979, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: interactUIObject
+      value: 
+      objectReference: {fileID: 712073527}
+    - target: {fileID: 6087642206064178979, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: actionBoolAnimator
+      value: ActiveChest
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087642206064178979, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: interactMessageTextObject
+      value: 
+      objectReference: {fileID: 543367219}
+    - target: {fileID: 6233404291917295079, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ded2f79824f7524eb7edcec54a2e3a8, type: 2}
+    - target: {fileID: 6393650790206818928, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_Name
+      value: Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761356541601754727, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761356541601754727, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+--- !u!95 &9020685456141422276 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8761356541601754727, guid: d37b8603f6b68e34380d41bc765fe655, type: 3}
+  m_PrefabInstance: {fileID: 6087642205980548409}
+  m_PrefabAsset: {fileID: 0}
