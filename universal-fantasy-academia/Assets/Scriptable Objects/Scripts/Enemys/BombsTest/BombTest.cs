@@ -39,6 +39,22 @@ public class BombTest : MonoBehaviour
         }
     }
 
+
+    void Damage(Collider other, bool isDestroy = false)
+    {   
+        if (isDestroy)
+        {
+            Destroy(other.gameObject);
+        }
+
+        Debug.Log("Toma otário!!!");
+        life--;
+        if(life <= 0)
+        {
+            DeathGhost();
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
@@ -48,12 +64,15 @@ public class BombTest : MonoBehaviour
 
         if(other.CompareTag("Weapon"))
         {
-            Destroy(other);
-            life--;
-            if(life <= 0)
-            {
-                DeathGhost();
-            }
+            Damage(other);
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Weapon"))
+        {
+            Damage(other);
         }
     }
 

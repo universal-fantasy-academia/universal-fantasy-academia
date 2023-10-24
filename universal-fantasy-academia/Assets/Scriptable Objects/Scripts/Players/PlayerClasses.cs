@@ -15,6 +15,11 @@ public abstract class PlayerClasses : MonoBehaviour
             Destroy(currentWeapon);
         }
 
+        if (weaponPrefeb == null)
+        {
+            return;
+        }
+
         currentWeapon = Instantiate(weaponPrefeb);
         currentWeapon.transform.parent = weaponParent;
         currentWeapon.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);

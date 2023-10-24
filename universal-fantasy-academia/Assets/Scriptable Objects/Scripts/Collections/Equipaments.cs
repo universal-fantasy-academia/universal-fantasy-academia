@@ -77,6 +77,7 @@ public class Equipaments : MonoBehaviour
             case EquipmentType.Weapon:
                 Destroy(weapon.GetComponent<Image>().sprite);
                 weapon.GetComponent<Image>().enabled = false;
+                player.selectedPlayerClass.ChangeWeapon(null);
                 break;
 
             case EquipmentType.Accessory:
