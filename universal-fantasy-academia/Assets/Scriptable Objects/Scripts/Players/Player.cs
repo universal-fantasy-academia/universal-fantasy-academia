@@ -47,6 +47,9 @@ public abstract class Player : MonoBehaviour
     private string PLAYER_PREFS_PLAYER_SELECTED = "PlayerSelected";
 
 
+    private bool isOnLadder = false;
+
+
     void Start()
     {
 
@@ -141,6 +144,19 @@ public abstract class Player : MonoBehaviour
     void FixedUpdate()
     {
         VerifyHp();
+
+        //Verifica se o player está subindo / descendo uma escada
+        if (isOnLadder)
+        {
+            controller.enabled = false;
+            transform.position += Vector3.up * moveInput.y * speed * Time.fixedDeltaTime;
+            return;
+        }
+
+        if (!isOnLadder)
+        {
+            controller.enabled = true;
+        }
 
 
         Vector3 viewDir = playerTransform.position - new Vector3(cameraTransform.position.x, playerTransform.position.y, cameraTransform.position.z);
@@ -390,6 +406,26 @@ public abstract class Player : MonoBehaviour
     // public abstract void CollectItem(Item item);
 
     // public abstract void UseItem(Item item);
+
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ladder"))
+        {
+            Debug.Log("Entrou na escada");
+            isOnLadder = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ladder"))
+        {
+            Debug.Log("Saiu da escada");
+            isOnLadder = false;
+        }
+    }
 
 
 

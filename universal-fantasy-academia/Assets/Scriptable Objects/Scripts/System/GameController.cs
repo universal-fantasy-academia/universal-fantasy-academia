@@ -32,6 +32,20 @@ public class GameController : MonoBehaviour
             destroyedObjectsIds = new List<string>();
             SaveGame(true);
         }
+
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            //Diminuir HP do player
+            player.ChangeHp(player.HP - 10);
+            Debug.Log("Player HP: " + player.HP);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            //Aumentar HP do player
+            player.ChangeHp(player.HP + 10);
+            Debug.Log("Player HP: " + player.HP);
+        }
     }
 
     public void SaveGame(bool allButPlayer = false)
