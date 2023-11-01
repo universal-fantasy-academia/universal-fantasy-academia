@@ -4,7 +4,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
 using UnityEngine.AI;
-using Unity.Mathematics;
 
 public class BombTest : MonoBehaviour
 {
@@ -23,6 +22,7 @@ public class BombTest : MonoBehaviour
     public float runAwayMax = 100f;
 
     private NavMeshAgent navMeshAgent;
+
 
     void Awake()
     {
@@ -44,7 +44,7 @@ public class BombTest : MonoBehaviour
     void FixedUpdate()
     {
         //Verifica se o player está no mesmo andar que o inimigo
-        if(math.abs(player.transform.position.y - transformEnemy.position.y) > 2)
+        if(Mathf.Abs(player.transform.position.y - transformEnemy.position.y) > 2)
         {
             return;
         }
@@ -163,6 +163,7 @@ public class BombTest : MonoBehaviour
 
     void DeathGhost()
     {
+        playerController.LevelUp(20);
         explodionSound.Play();
         Destroy(gameObject);
     }

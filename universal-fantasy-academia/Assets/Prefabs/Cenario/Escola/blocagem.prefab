@@ -8537,7 +8537,6 @@ GameObject:
   - component: {fileID: 2976098759721294645}
   - component: {fileID: 4542136722961716819}
   - component: {fileID: 5466863967947788155}
-  - component: {fileID: 3780343516713831659}
   m_Layer: 0
   m_Name: escada
   m_TagString: Ladder
@@ -8610,19 +8609,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3780343516713831659
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425120245382270820}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.019827764, y: 0.012533928, z: 0.034609497}
-  m_Center: {x: 0.0074232304, y: 1.0409122e-17, z: 0.0054624304}
 --- !u!1 &437425476983000090
 GameObject:
   m_ObjectHideFlags: 0
@@ -11537,7 +11523,6 @@ GameObject:
   - component: {fileID: 2948574148767865437}
   - component: {fileID: 6966019672554280830}
   - component: {fileID: 7719420263945039441}
-  - component: {fileID: 3008434672923238560}
   - component: {fileID: 5620198495308495336}
   m_Layer: 0
   m_Name: predio_baixo
@@ -11677,19 +11662,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0011408043, y: 0.19999996, z: 0.042305797}
   m_Center: {x: 0.15040538, y: 3.9180005e-18, z: -0.0011529023}
---- !u!65 &3008434672923238560
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4323572328325897675}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0008142471, y: 0.078668796, z: 0.042305797}
-  m_Center: {x: -0.040542793, y: -0.0621087, z: -0.0011529017}
 --- !u!65 &5620198495308495336
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -11,12 +11,11 @@ public abstract class Player : MonoBehaviour
     [SerializeField]
     public Transform cameraTransform, playerTransform, orientation;
     [SerializeField]
-    private CharacterController controller;
+    public CharacterController controller;
     private Vector3 playerVelocity;
     private bool playerIsGrounded;
     private Vector2 moveInput;
     public GameObject Cubo;
-
 
     public InteractSensor interactSensor;
     public ShotController shot;
@@ -47,12 +46,11 @@ public abstract class Player : MonoBehaviour
     private string PLAYER_PREFS_PLAYER_SELECTED = "PlayerSelected";
 
 
-    private bool isOnLadder = false;
+    public bool isOnLadder = false;
 
 
     void Start()
     {
-
         //Cursor.lockState = CursorLockMode.Locked;
         playerData = SaveSystem.LoadPlayer();
         if(playerData != null)
@@ -101,6 +99,8 @@ public abstract class Player : MonoBehaviour
         controller = GetComponent<CharacterController>();
 
         respawn = GameObject.FindGameObjectWithTag("Respawn").transform;
+
+
     }
 
     void Update()
@@ -148,36 +148,33 @@ public abstract class Player : MonoBehaviour
         //Verifica se o player está subindo / descendo uma escada
         if (isOnLadder)
         {
-            controller.enabled = false;
-            transform.position += Vector3.up * moveInput.y * speed * Time.fixedDeltaTime;
-            return;
+            LadderUpnDown();
         }
 
         if (!isOnLadder)
         {
-            controller.enabled = true;
+
+
+            Vector3 viewDir = playerTransform.position - new Vector3(cameraTransform.position.x, playerTransform.position.y, cameraTransform.position.z);
+            orientation.rotation = Quaternion.LookRotation(viewDir.normalized, Vector3.up);
+
+            Vector3 dir = orientation.forward * moveInput.y + orientation.right * moveInput.x;
+            controller.Move(dir.normalized * speed * Time.fixedDeltaTime);
+
+            if (dir != Vector3.zero)
+            {
+                playerTransform.forward = Vector3.Slerp(playerTransform.forward, dir.normalized, Time.fixedDeltaTime * rotation);
+            }
+
+            playerVelocity.y += gravityValue * Time.fixedDeltaTime;
+            controller.Move(playerVelocity * Time.fixedDeltaTime);
+
         }
 
-
-        Vector3 viewDir = playerTransform.position - new Vector3(cameraTransform.position.x, playerTransform.position.y, cameraTransform.position.z);
-        orientation.rotation = Quaternion.LookRotation(viewDir.normalized, Vector3.up);
-
-        Vector3 dir = orientation.forward * moveInput.y + orientation.right * moveInput.x;
-        controller.Move(dir.normalized * speed * Time.fixedDeltaTime);
-
-        if(dir != Vector3.zero)
-        {
-            playerTransform.forward = Vector3.Slerp(playerTransform.forward, dir.normalized, Time.fixedDeltaTime * rotation);
-        }
-
-        playerVelocity.y += gravityValue * Time.fixedDeltaTime;
-        controller.Move(playerVelocity * Time.fixedDeltaTime);
-
-
-        if(Input.GetKeyDown(KeyCode.F1))
-        {
-            Respawn();
-        }
+            if(Input.GetKeyDown(KeyCode.F1))
+            {
+                Respawn();
+            }
 
 
     }
@@ -267,6 +264,15 @@ public abstract class Player : MonoBehaviour
 
     }
 
+
+
+    public void LadderUpnDown()
+    {
+        Vector3 dir = orientation.up * moveInput.y;
+        controller.Move(dir.normalized * speed * Time.fixedDeltaTime);
+    }
+
+
     public void Run(InputAction.CallbackContext context)
     {
         if(context.performed && playerIsGrounded && speed <= 5)
@@ -289,13 +295,6 @@ public abstract class Player : MonoBehaviour
     /// O método é implementado como virtual para que a classe filha possa sobrescrever com pulo duplo, por exemplo.
     /// </remarks>
     /// <param name="context"></param>
-    public virtual void Jump(InputAction.CallbackContext context)
-    {
-        if (context.performed && playerIsGrounded)
-        {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        }
-    }
 
     // public abstract void Attack(InputAction.CallbackContext context);
 
@@ -311,10 +310,6 @@ public abstract class Player : MonoBehaviour
         PlayerPrefs.SetInt("HP", HP);
         ChangeHp(HP);
     }
-
-
-
-
 
     public virtual void Respawn()
     {
@@ -389,7 +384,7 @@ public abstract class Player : MonoBehaviour
     {
         if(context.performed)
         {
-            Interactable interactable = interactSensor.GetInteractable();
+           Interactable interactable = interactSensor.GetInteractable();
             if(interactable != null)
             {
                 interactable.Interact();
@@ -409,20 +404,20 @@ public abstract class Player : MonoBehaviour
 
 
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Ladder"))
-        {
-            Debug.Log("Entrou na escada");
-            isOnLadder = true;
-        }
-    }
+//    void OnTriggerEnter(Collider other)
+    //    {
+    //        if (other.gameObject.CompareTag("Ladder"))
+    //        {
+    //            Debug.Log(isOnLadder);
+    //            isOnLadder = true;
+    //        }
+    //    }
 
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Ladder"))
         {
-            Debug.Log("Saiu da escada");
+            Debug.Log(isOnLadder);
             isOnLadder = false;
         }
     }

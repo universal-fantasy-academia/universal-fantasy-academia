@@ -30,7 +30,6 @@ public class ItemDropController : Interactable
     }
 
 
-
     void Start()
     {
         interactDelegate += OnDrop;
