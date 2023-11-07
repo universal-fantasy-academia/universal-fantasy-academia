@@ -264,8 +264,6 @@ public abstract class Player : MonoBehaviour
 
     }
 
-
-
     public void LadderUpnDown()
     {
         Vector3 dir = orientation.up * moveInput.y;
@@ -412,6 +410,15 @@ public abstract class Player : MonoBehaviour
     //            isOnLadder = true;
     //        }
     //    }
+
+//    void OnTriggerEnter(Collider other)
+//    {
+//        if(other.gameObject.CompareTag("Ladder"))
+//        {
+//            Debug.Log(isOnLadder);
+//            ActiveLadder();
+//        }
+//    }
 
     void OnTriggerExit(Collider other)
     {
