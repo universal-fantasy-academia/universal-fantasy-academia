@@ -77,4 +77,25 @@ public static class SaveSystem
             return null;
         }
     }
+
+    public static void DeleteSave()
+    {
+        if (File.Exists(playerPath))
+        {
+            File.Delete(playerPath);
+        }
+        else
+        {
+            Debug.LogError("Save file not found in " + playerPath);
+        }
+
+        if (File.Exists(scenePath))
+        {
+            File.Delete(scenePath);
+        }
+        else
+        {
+            Debug.LogError("Save file not found in " + scenePath);
+        }
+    }
 }

@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        //SaveSystem.DeleteSave();
         LoadGame();
     }
 
@@ -26,6 +27,12 @@ public class GameController : MonoBehaviour
         // {
         //     LoadGame();
         // }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            Debug.Log("Deleting save");
+            SaveSystem.DeleteSave();
+        }
+
         if (Input.GetKeyDown(KeyCode.F3))
         {
             Debug.Log("Clearing deleted objects");
