@@ -27,6 +27,7 @@ public class Enter : Interactable
         
         player.transform.position = new Vector3(door.position.x, door.position.y, door.position.z);
         player.transform.forward = door.forward;
+        if(soundDoor != null)
         soundDoor.Play();
 
         controller.enabled = true;
