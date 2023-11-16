@@ -8,21 +8,28 @@ public class Enter : Interactable
     private GameObject player;
     public AudioSource soundDoor;
 
-    void Awake()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
+    // void Awake()
+    // {
+    //     player = GameObject.FindGameObjectWithTag("Player");
+    // }
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         interactDelegate += UseDoor;
     }
 
     public void UseDoor()
     {
-        player.transform.position = door.position;
+        CharacterController controller = player.GetComponentInParent<CharacterController>();
+
+        controller.enabled = false;
+        
+        player.transform.position = new Vector3(door.position.x, door.position.y, door.position.z);
         player.transform.forward = door.forward;
         soundDoor.Play();
+
+        controller.enabled = true;
     }
 
     void OnDisable()
