@@ -37,8 +37,9 @@ public abstract class Player : MonoBehaviour
     public UiController uiController;
 
 
-    private Animator animator;
+    public Animator animator;
     private string attackBoolAnimator;
+    
 
     private  PlayerData playerData = null;
 
@@ -47,6 +48,9 @@ public abstract class Player : MonoBehaviour
 
 
     public bool isOnLadder = false;
+
+
+
 
 
     void Start()
@@ -219,7 +223,7 @@ public abstract class Player : MonoBehaviour
     }
 
 
-    private void UpdateAnimator()
+    public void UpdateAnimator()
     {
         animator = GetComponentInChildren<Animator>();
         //Debug.Log(animator);
@@ -227,14 +231,7 @@ public abstract class Player : MonoBehaviour
         attackBoolAnimator = playerSelected.attackBoolAnimator;
     }
 
-    public void PlayAttackAnimation()
-    {
-        // if (!animator)
-        // {
-        //     UpdateAnimator();
-        // }
-        // animator.SetTrigger(attackBoolAnimator);
-    }
+    
 
 
 

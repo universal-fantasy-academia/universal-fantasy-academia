@@ -7,7 +7,6 @@ public abstract class PlayerClasses : MonoBehaviour
     [HideInInspector]
     public GameObject currentWeapon;
 
-
     public void ChangeWeapon(GameObject weaponPrefeb)
     {
         if(currentWeapon != null)

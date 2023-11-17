@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerType: 1
   playerPrefab: {fileID: 4885712665823009044, guid: 16509a4ab9d6e4540a9bf61612389b23, type: 3}
-  animatorController: {fileID: 9100000, guid: 51b926865f74eaa49bc9e5887b9821a7, type: 2}
+  animatorController: {fileID: 9100000, guid: 59f4e8f81e041ee4c88626b8ce131a9f, type: 2}
   attackBoolAnimator: isAttack
