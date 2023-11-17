@@ -229,11 +229,11 @@ public abstract class Player : MonoBehaviour
 
     public void PlayAttackAnimation()
     {
-        if (!animator)
-        {
-            UpdateAnimator();
-        }
-        animator.SetTrigger(attackBoolAnimator);
+        // if (!animator)
+        // {
+        //     UpdateAnimator();
+        // }
+        // animator.SetTrigger(attackBoolAnimator);
     }
 
 
