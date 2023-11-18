@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerObject : Player
 {
-    public float coolDownTime = 0.8f;
+    public float coolDownTime = 0.2f;
     private float nextFireTime = 0f;
     public static int numberOfClicks = 0;
     float lastClickedTime = 0;
@@ -16,31 +16,7 @@ public class PlayerObject : Player
 
     void Update()
     {
-        if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit1"))
-        {
-            base.animator.SetBool("hit1", false);
-        }
-
-        if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit2"))
-        {
-            base.animator.SetBool("hit2", false);
-        }
-
-        if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit3"))
-        {
-            base.animator.SetBool("hit3", false);
-        }
-
-        if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit4"))
-        {
-            base.animator.SetBool("hit4", false);
-            numberOfClicks = 0;
-        }
-
-        if (Time.time - lastClickedTime > maxComboDelay)
-        {
-            numberOfClicks = 0;
-        }
+        
     }
 
     public void PlayAttackAnimation()
@@ -51,10 +27,15 @@ public class PlayerObject : Player
         }
         //base.animator.SetTrigger(attackBoolAnimator);
 
-        
+        Debug.Log(base.animator.name);
 
         lastClickedTime = Time.time;
         numberOfClicks++;
+
+        if (numberOfClicks > 4) 
+        {
+            numberOfClicks = 0;
+        }
 
         Debug.Log(numberOfClicks);
 
@@ -82,6 +63,8 @@ public class PlayerObject : Player
             base.animator.SetBool("hit3", false);
             base.animator.SetBool("hit4", true);
         }
+
+        
     }
 
 
@@ -92,6 +75,32 @@ public class PlayerObject : Player
             // base.selectedPlayerClass = playerSlot.GetComponentInChildren<PlayerClasses>();
             // base.selectedPlayerClass.Attack(context, shot);
             // base.PlayAttackAnimation();
+
+            if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit1"))
+            {
+                base.animator.SetBool("hit1", false);
+            }
+
+            if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit2"))
+            {
+                base.animator.SetBool("hit2", false);
+            }
+
+            if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit3"))
+            {
+                base.animator.SetBool("hit3", false);
+            }
+
+            if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit4"))
+            {
+                base.animator.SetBool("hit4", false);
+                numberOfClicks = 0;
+            }
+
+            if (Time.time - lastClickedTime > maxComboDelay)
+            {
+                numberOfClicks = 0;
+            }
 
             if (Time.time > nextFireTime)
             {
