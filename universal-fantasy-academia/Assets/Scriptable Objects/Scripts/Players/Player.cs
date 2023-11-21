@@ -33,6 +33,7 @@ public abstract class Player : MonoBehaviour
 
     public int XP = 1;
     public int HP = 50;
+    public int Coins = 0;
 
     public UiController uiController;
 
@@ -145,6 +146,22 @@ public abstract class Player : MonoBehaviour
         }
     }
 
+    void PlayWalkAnimation(float x, float y)
+    {
+        if (!animator)
+        {
+            UpdateAnimator();
+        }
+
+        if ((x != 0 || y != 0) && !animator.GetBool("isWalking"))
+        {
+            animator.SetBool("isWalking", true);
+        }
+
+        //Debug.Log("X: " + x + " Y: " + y + " isWalking: " + animator.GetBool("isWalking"));
+
+    }
+
     void FixedUpdate()
     {
         VerifyHp();
@@ -161,6 +178,12 @@ public abstract class Player : MonoBehaviour
 
             Vector3 viewDir = playerTransform.position - new Vector3(cameraTransform.position.x, playerTransform.position.y, cameraTransform.position.z);
             orientation.rotation = Quaternion.LookRotation(viewDir.normalized, Vector3.up);
+
+            if (moveInput.x == 0 && moveInput.y == 0)
+            {
+                animator.SetBool("isWalking", false);
+            }
+            PlayWalkAnimation(moveInput.x, moveInput.y);
 
             Vector3 dir = orientation.forward * moveInput.y + orientation.right * moveInput.x;
             controller.Move(dir.normalized * speed * Time.fixedDeltaTime);
@@ -326,6 +349,12 @@ public abstract class Player : MonoBehaviour
     {
         HP = Mathf.Min(hp, 100);
         uiController.OnChangeHp(HP);
+    }
+
+    public void AddMoney(int money)
+    {
+        Coins += money;
+        uiController.OnChangeCoins(money);
     }
 
     private void VerifyHp()

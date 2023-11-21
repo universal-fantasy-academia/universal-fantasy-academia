@@ -20,9 +20,10 @@ public class UiController : MonoBehaviour
     public GameObject movPlayer, camera;
 
 
-    [Header("XP and HP Hud")]
+    [Header("XP, HP and Coins Hud")]
     public TextMeshProUGUI XP;
     public TextMeshProUGUI HP;
+    public TextMeshProUGUI Coins;
 
     [Header("System")]
     public GameController gameController;
@@ -37,6 +38,14 @@ public class UiController : MonoBehaviour
         {
             saveConfirmationTextMeshPro = saveConfirmationMessage.GetComponentInChildren<TextMeshProUGUI>();
         }
+
+        PlayerPrefs.SetInt("HP", 50);
+        PlayerPrefs.SetInt("XP", 0);
+        PlayerPrefs.SetInt("Coins", 0);
+
+        HP.text = PlayerPrefs.GetInt("HP").ToString();
+        XP.text = PlayerPrefs.GetInt("XP").ToString();
+        Coins.text = PlayerPrefs.GetInt("Coins").ToString();
     }
 
     public void Awake()
@@ -64,6 +73,12 @@ public class UiController : MonoBehaviour
     {
         //PlayerPrefs.SetInt("XP", xp);
         XP.text = xp.ToString();
+    }
+
+    public void OnChangeCoins(int coins)
+    {
+        PlayerPrefs.SetInt("Coins", coins);
+        Coins.text = coins.ToString();
     }
 
     #region Button Actions

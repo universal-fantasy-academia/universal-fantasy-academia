@@ -11,6 +11,7 @@ public class ItemScriptableObjectConsumable : ItemScriptableObject
         Health,
         Mana,
         Stamina,
+        Money,
         Experience
     }
 
@@ -25,7 +26,11 @@ public class ItemScriptableObjectConsumable : ItemScriptableObject
         else if (consumableType == ConsumableType.Experience)
         {
             playerScript.LevelUp(Value);
-    }
+        }
+        else if (consumableType == ConsumableType.Money)
+        {
+            playerScript.AddMoney(Value);
+        }
         else
         {
             Debug.Log("Consumable type not implemented");
