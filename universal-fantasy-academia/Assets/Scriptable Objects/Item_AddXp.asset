@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfb8ea023543c3a4989e3758c40c1cfb, type: 3}
-  m_Name: Item_AddXp
+  m_Name: Item_AddXP
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 2ddbfc53acc8c9243bf4a804f9e4cc9e, type: 3}
   Name: XP
   Description: Item Description
-  Value: 25
+  Value: 20
   maxQuantity: 5
-  consumableType: 3
+  consumableType: 4

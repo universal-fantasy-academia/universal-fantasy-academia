@@ -141,13 +141,13 @@ public class PlayerObject : Player
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Fantasma"))
-        {
-            TakeDamage(5);
-        }
-    }
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if(other.CompareTag("Fantasma"))
+    //     {
+    //         TakeDamage(5);
+    //     }
+    // }
 
 
 }

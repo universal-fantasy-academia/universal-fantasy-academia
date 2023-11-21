@@ -125,11 +125,11 @@ public class BombTest : MonoBehaviour
         
 
 
-    void Damage(GameObject other, bool isDestroy = false)
+    void Damage(GameObject gameObject, bool isDestroy = false)
     {   
         if (isDestroy)
         {
-            Destroy(other);
+            Destroy(gameObject);
         }
 
         Debug.Log("Toma otário!!!");
@@ -144,6 +144,7 @@ public class BombTest : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            playerController.TakeDamage(5);
             DeathGhost();
         }
 
@@ -163,7 +164,7 @@ public class BombTest : MonoBehaviour
 
     void DeathGhost()
     {
-        playerController.LevelUp(20);
+        playerController.ChangeXP(PlayerPrefs.GetInt("XP") + 20);
         explodionSound.Play();
         Destroy(gameObject);
     }
