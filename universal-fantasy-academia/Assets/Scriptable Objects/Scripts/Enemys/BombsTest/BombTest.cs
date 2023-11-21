@@ -11,7 +11,7 @@ public class BombTest : MonoBehaviour
     public AudioSource explodionSound;
     public GameObject player;
     public Player playerController;
-    public float speed = 2 , rotation;
+    public float speed = 1 , rotation;
     private Transform transformEnemy;
     public int life = 2;
     public int minMagnitude;

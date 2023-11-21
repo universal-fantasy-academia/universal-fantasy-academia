@@ -16,6 +16,7 @@ public abstract class Player : MonoBehaviour
     private bool playerIsGrounded;
     private Vector2 moveInput;
     public GameObject Cubo;
+    public AudioSource Walk;
 
     public InteractSensor interactSensor;
     public ShotController shot;
@@ -42,7 +43,7 @@ public abstract class Player : MonoBehaviour
     private string attackBoolAnimator;
     
 
-    private  PlayerData playerData = null;
+    private PlayerData playerData = null;
 
 
     private string PLAYER_PREFS_PLAYER_SELECTED = "PlayerSelected";
@@ -303,6 +304,10 @@ public abstract class Player : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        if(context.performed)
+        {
+            Walk.Play();
+        }
     }
 
 
