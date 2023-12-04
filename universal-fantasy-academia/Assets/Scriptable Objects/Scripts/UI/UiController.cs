@@ -46,6 +46,8 @@ public class UiController : MonoBehaviour
         HP.text = PlayerPrefs.GetInt("HP").ToString();
         XP.text = PlayerPrefs.GetInt("XP").ToString();
         Coins.text = PlayerPrefs.GetInt("Coins").ToString();
+
+        HideCursor();
     }
 
     public void Awake()
@@ -60,6 +62,39 @@ public class UiController : MonoBehaviour
         {
             OptionsPanel.SetActive(false);
         }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            OpenInventory();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (OptionsPanel.activeSelf)
+            {
+                CloseOptionsMenu();
+            }
+            else
+            {
+                OpenOptionsMenu();
+            }
+        }
+    }
+
+    void HideCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+
+    void ShowCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
 
@@ -112,6 +147,8 @@ public class UiController : MonoBehaviour
             camera.SetActive(true);
             inventoryPanel.SetActive(false);
             equimentPanel.SetActive(false);
+
+            HideCursor();
         }
         else
         {
@@ -119,6 +156,8 @@ public class UiController : MonoBehaviour
             camera.SetActive(false);
             inventoryPanel.SetActive(true);
             equimentPanel.SetActive(true);
+
+            ShowCursor();
         }
     }
 
@@ -172,6 +211,8 @@ public class UiController : MonoBehaviour
             }
             
             OptionsPanel.SetActive(true);
+
+            ShowCursor();
         }
     }
 
@@ -186,6 +227,8 @@ public class UiController : MonoBehaviour
                 movPlayer.GetComponent<PlayerInput>().enabled = true;
                 camera.SetActive(true);
             }
+
+            HideCursor();
         }
     }
 

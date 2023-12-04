@@ -16,7 +16,7 @@ public class Estante : Interactable
     {
         animator.SetTrigger("Active");
         if(audio != null)
-        audio.Play();
+            audio.Play();
     }
 
     void Disable()

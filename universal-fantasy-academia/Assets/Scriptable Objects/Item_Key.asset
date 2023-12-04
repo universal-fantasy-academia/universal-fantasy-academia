@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: b4d8570d4d2b1ac498cda72470001d27, type: 3}
   Name: Key
-  Description: Item Description
+  Description: Library
   Value: 0
   maxQuantity: 1
-  consumableType: 1
+  isItemUsedByTheSystem: 1
+  consumableType: 5

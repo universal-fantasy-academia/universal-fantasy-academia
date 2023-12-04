@@ -51,6 +51,8 @@ public class DialogController : MonoBehaviour
 
     private Vector3 playerPosition;
 
+    bool isWriting = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +67,7 @@ public class DialogController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInteracting && Input.GetKeyDown(KeyCode.E))
+        if (isInteracting && Input.GetKeyDown(KeyCode.E) && !isWriting)
         {
             if (!dialogBox.activeSelf)
             {
@@ -169,6 +171,8 @@ public class DialogController : MonoBehaviour
 
     IEnumerator WriteSentence(DialogLine dialogLine)
     {
+        isWriting = true;
+
         characterImage.sprite = dialogLine.characterImage;
         characterName.text = dialogLine.characterName;
 
@@ -177,6 +181,8 @@ public class DialogController : MonoBehaviour
             dialogText.text += letter;
             yield return new WaitForSeconds(dialogSpeed);
         }
+
+        isWriting = false;
     }
 
     private void OnTriggerEnter(Collider other)

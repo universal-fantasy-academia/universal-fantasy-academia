@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -76,9 +77,14 @@ public class Inventory : MonoBehaviour
         
     }
 
-    public void RemoveItem(ItemScriptableObject item)
+    public void RemoveItem(ItemScriptableObject item, bool isPlayerUsingTheItem = true)
     {
-        item.RemoveQuantity();
+        if (item.isItemUsedByTheSystem && isPlayerUsingTheItem)
+        {
+            return;
+        }
+
+        item.RemoveQuantity(1, isPlayerUsingTheItem);
         if (item.quantity <= 0)
         {
             items.Remove(item);
@@ -87,17 +93,32 @@ public class Inventory : MonoBehaviour
         item.InventorySlot.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.quantity.ToString();
     }
 
-    public void UseItem(ItemScriptableObject item)
+    public void UseItem(ItemScriptableObject item, bool isPlayerUsingTheItem = true)
     {
         if (playerScript != null && item.Use(playerScript))
         {
-            item.RemoveQuantity();
+            item.RemoveQuantity(1, isPlayerUsingTheItem);
             if (item.quantity <= 0)
             {
-                RemoveItem(item);
+                RemoveItem(item, isPlayerUsingTheItem);
             }
             item.InventorySlot.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.quantity.ToString();
         }
+    }
+
+    public bool ContainsItem(string name)
+    {
+        return items.Exists(item => item.Name == name);
+    }
+
+    public ItemScriptableObject GetItem(string name)
+    {
+        return items.Find(item => item.Name == name);
+    }
+
+    public List<ItemScriptableObject> GetItems()
+    {
+        return items;
     }
 
 

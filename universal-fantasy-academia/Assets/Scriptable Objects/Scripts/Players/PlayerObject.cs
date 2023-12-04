@@ -38,47 +38,53 @@ public class PlayerObject : Player
         {
             base.UpdateAnimator();
         }
+
         //base.animator.SetTrigger(attackBoolAnimator);
 
-        lastClickedTime = Time.time;
-        numberOfClicks++;
+        base.animator.SetTrigger("attack");
 
-        Debug.Log(numberOfClicks);
+        // lastClickedTime = Time.time;
+        // numberOfClicks++;
 
+        // Debug.Log(numberOfClicks);
 
-        if (numberOfClicks ==  1)
-        {
-            base.animator.SetBool("hit1", true);
-            base.animator.SetBool("hit2", false);
-            base.animator.SetBool("hit3", false);
-            base.animator.SetBool("hit4", false);
-        }
-        //numberOfClicks = Mathf.Clamp(numberOfClicks, 0, 3);
+        // //base.animator.SetLayerWeight(2, 1);
 
-        if (numberOfClicks >= 2 && base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit1"))
-        {
-            base.animator.SetBool("hit1", false);
-            base.animator.SetBool("hit2", true);
-            base.animator.SetBool("hit3", false);
-            base.animator.SetBool("hit4", false);
-        }
+        // if (numberOfClicks ==  1)
+        // {
+        //     base.animator.SetBool("hit1", true);
+        //     base.animator.SetBool("hit2", false);
+        //     base.animator.SetBool("hit3", false);
+        //     base.animator.SetBool("hit4", false);
+        // }
+        // //numberOfClicks = Mathf.Clamp(numberOfClicks, 0, 3);
 
-        if (numberOfClicks >= 3 && base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit2"))
-        {
-            base.animator.SetBool("hit1", false);
-            base.animator.SetBool("hit2", false);
-            base.animator.SetBool("hit3", true);
-            base.animator.SetBool("hit4", false);
-        }
+        // if (numberOfClicks >= 2 && base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit1"))
+        // {
+        //     base.animator.SetBool("hit1", false);
+        //     base.animator.SetBool("hit2", true);
+        //     base.animator.SetBool("hit3", false);
+        //     base.animator.SetBool("hit4", false);
+        // }
 
-        if (numberOfClicks >= 4 && base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit3"))
-        {
-            base.animator.SetBool("hit1", false);
-            base.animator.SetBool("hit2", false);
-            base.animator.SetBool("hit3", false);
-            base.animator.SetBool("hit4", true);
-            numberOfClicks = 0;
-        }
+        // if (numberOfClicks >= 3 && base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit2"))
+        // {
+        //     base.animator.SetBool("hit1", false);
+        //     base.animator.SetBool("hit2", false);
+        //     base.animator.SetBool("hit3", true);
+        //     base.animator.SetBool("hit4", false);
+        // }
+
+        // if (numberOfClicks >= 4 && base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit3"))
+        // {
+        //     base.animator.SetBool("hit1", false);
+        //     base.animator.SetBool("hit2", false);
+        //     base.animator.SetBool("hit3", false);
+        //     base.animator.SetBool("hit4", true);
+        //     numberOfClicks = 0;
+        // }
+
+        //base.animator.SetLayerWeight(2, 0);
 
         
     }
@@ -92,39 +98,41 @@ public class PlayerObject : Player
             // base.selectedPlayerClass.Attack(context, shot);
             // base.PlayAttackAnimation();
 
-            if (Time.time > nextFireTime)
-            {
-                Debug.Log("Atacando com a espada");
-                PlayAttackAnimation();
-                //StartCoroutine(CoolDown());
-            }
+            PlayAttackAnimation();
 
-            // if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit1"))
+            // if (Time.time > nextFireTime)
             // {
-            //     base.animator.SetBool("hit1", false);
+            //     Debug.Log("Atacando com a espada");
+            //     PlayAttackAnimation();
+            //     //StartCoroutine(CoolDown());
             // }
 
-            // if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit2"))
-            // {
-            //     base.animator.SetBool("hit2", false);
-            // }
+            // // if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit1"))
+            // // {
+            // //     base.animator.SetBool("hit1", false);
+            // // }
 
-            // if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit3"))
-            // {
-            //     base.animator.SetBool("hit3", false);
-            // }
+            // // if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit2"))
+            // // {
+            // //     base.animator.SetBool("hit2", false);
+            // // }
 
-            // if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit4"))
+            // // if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit3"))
+            // // {
+            // //     base.animator.SetBool("hit3", false);
+            // // }
+
+            // // if (base.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && base.animator.GetCurrentAnimatorStateInfo(0).IsName("hit4"))
+            // // {
+            // //     base.animator.SetBool("hit4", false);
+            // //     numberOfClicks = 0;
+            // // }
+
+            // if (Time.time - lastClickedTime > maxComboDelay)
             // {
-            //     base.animator.SetBool("hit4", false);
             //     numberOfClicks = 0;
+            //     StartCoroutine(CoolDown());
             // }
-
-            if (Time.time - lastClickedTime > maxComboDelay)
-            {
-                numberOfClicks = 0;
-                StartCoroutine(CoolDown());
-            }
 
             
 

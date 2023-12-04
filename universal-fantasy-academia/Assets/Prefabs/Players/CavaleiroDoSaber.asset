@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CavaleiroDoSaber
   m_EditorClassIdentifier: 
   playerType: 0
-  playerPrefab: {fileID: 4885712665823009044, guid: a1617258557544c4491171cc5f17fef6, type: 3}
+  playerPrefab: {fileID: 109900192936022805, guid: 35334eb08f2844447a79747b0932301b, type: 3}
   animatorController: {fileID: 9100000, guid: 59f4e8f81e041ee4c88626b8ce131a9f, type: 2}
   attackBoolAnimator: IsAttack

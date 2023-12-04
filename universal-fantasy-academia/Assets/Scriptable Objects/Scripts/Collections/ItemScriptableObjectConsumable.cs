@@ -12,7 +12,8 @@ public class ItemScriptableObjectConsumable : ItemScriptableObject
         Mana,
         Stamina,
         Money,
-        Experience
+        Experience,
+        Key
     }
 
     public ConsumableType consumableType;
@@ -30,6 +31,10 @@ public class ItemScriptableObjectConsumable : ItemScriptableObject
         else if (consumableType == ConsumableType.Money)
         {
             playerScript.AddMoney(Value);
+        }
+        else if (consumableType == ConsumableType.Key)
+        {
+            Debug.Log("Key locked");
         }
         else
         {

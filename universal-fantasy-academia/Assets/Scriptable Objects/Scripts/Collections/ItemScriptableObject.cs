@@ -17,6 +17,7 @@ public abstract class ItemScriptableObject : ScriptableObject
     [NonSerialized]
     public int quantity = 0;
     public int maxQuantity;
+    public bool isItemUsedByTheSystem = false; //If true, the item will be used by the system, not by the player 
 
     public abstract bool Use(Player playerScript);
 
@@ -25,9 +26,9 @@ public abstract class ItemScriptableObject : ScriptableObject
         Inventory.Instance.AddItem(this);
     }
 
-    public void Drop()
+    public void Drop(bool isPlayerUsingTheItem = true)
     {
-        Inventory.Instance.RemoveItem(this);
+        Inventory.Instance.RemoveItem(this, isPlayerUsingTheItem);
     }
 
     public void AddQuantity(int _quantity = 1)
@@ -41,8 +42,19 @@ public abstract class ItemScriptableObject : ScriptableObject
         this.quantity += _quantity;
     }
 
-    public void RemoveQuantity(int _quantity = 1)
+    
+    /// <summary>
+    /// Removes a specified quantity from the item's current quantity.
+    /// </summary>
+    /// <param name="_quantity">The quantity to be removed. Default value is 1.</param>
+    /// <param name="isPlayerUsingTheItem">Specifies whether the player is using the item or the system. Default value is true.</param>
+    public void RemoveQuantity(int _quantity = 1, bool isPlayerUsingTheItem = true)
     {
+        if (this.isItemUsedByTheSystem && isPlayerUsingTheItem)
+        {
+            return;
+        }
+
         if (this.quantity - _quantity < 0)
         {
             this.quantity = 0;
