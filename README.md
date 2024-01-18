@@ -53,8 +53,8 @@
 ### Mecânicas
 - [ ] `1` **Movimentação:**
   - [ ] **Pulo:** Kena, Pulo Simples(Não influenciado pela corrida).
-  - [ ] **Corrida:** Genshin Impact.
-  - [ ] **Esquiva:** Genshin Impact, Kena.
+  - [ ] **Corrida:** Com estamina
+  - [ ] **Esquiva:** Rolamento.
         
 - [ ] `1` **Camêra (3º Pessoa):** Genshin Impact, Risk of Rain 2, Fortnite.
         
