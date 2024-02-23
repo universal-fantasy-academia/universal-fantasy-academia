@@ -57,34 +57,34 @@ public class GameController : MonoBehaviour
 
     public void SaveGame(bool allButPlayer = false)
     {
-        SaveSystem.SaveScene();
-        if (allButPlayer)
-        {
-            return;
-        }
+        // SaveSystem.SaveScene();
+        // if (allButPlayer)
+        // {
+        //     return;
+        // }
 
-        if (player != null)
-        {
-            SaveSystem.SavePlayer(player);
-        }
-        else
-        {
-            Debug.LogError("Player not found");
-            throw new System.Exception("Player not found");
-        }
+        // if (player != null)
+        // {
+        //     SaveSystem.SavePlayer(player);
+        // }
+        // else
+        // {
+        //     Debug.LogError("Player not found");
+        //     throw new System.Exception("Player not found");
+        // }
     }
 
     public void LoadGame()
     {   
-        SceneData sceneData = SaveSystem.LoadScene();
-        if (sceneData != null)
-        {
-            destroyedObjectsIds = sceneData.destroyedObjectsIds;
-        }
-        else
-        {
-            Debug.LogError("SceneData not found");
-        }
+        // SceneData sceneData = SaveSystem.LoadScene();
+        // if (sceneData != null)
+        // {
+        //     destroyedObjectsIds = sceneData.destroyedObjectsIds;
+        // }
+        // else
+        // {
+        //     Debug.LogError("SceneData not found");
+        // }
     }
 
 

@@ -208,6 +208,24 @@ public abstract class Player : MonoBehaviour
     }
 
 
+
+    public GameMemento SaveState()
+    {
+        //TODO: Usar a lógica do SetPlayerData para salvar o estado do jogador
+        GameMemento playerMemento = new GameMemento();
+        playerMemento.AddPlayerInfo(playerTransform.position, HP, XP);
+        return playerMemento;
+    }
+
+
+    public void RestoreState(GameMemento memento)
+    {
+        //TODO: Implementar a restauração do estado do jogador
+        // Usar lógica do SetPlayerData
+    }
+
+
+
     public void SetPlayerData(PlayerData playerData)
     {
         ChangeXP(playerData.xp);
